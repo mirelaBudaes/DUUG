@@ -1,0 +1,1202 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vega.USiteBuilder</name>
+    </assembly>
+    <members>
+        <member name="T:Vega.USiteBuilder.MacroAttribute">
+            <summary>
+            Sets the properties of a macro corresponding to this control.
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.MacroAttribute.#ctor">
+            <summary>
+            Sets the properties of a macro corresponding to this control.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.MacroAttribute.Name">
+            <summary>
+            Gets or sets the macro name.
+            Default value: name of this class.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.MacroAttribute.UseInEditor">
+            <summary>
+            Gets or sets if macro can be used in editor
+            Default value: false
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.MacroAttribute.RenderContentInEditor">
+            <summary>
+            Gets or sets if macro should be rendered in editor
+            Default value: true
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.MacroAttribute.CachePeriod">
+            <summary>
+            Gets or sets cache period in seconds
+            Default value: 0
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.MacroAttribute.CacheByPage">
+            <summary>
+            Gets or sets if macro should be cached per page.
+            Default value: true
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.MacroAttribute.CachePersonalized">
+            <summary>
+            Gets or sets if cache should be personalized.
+            Default value: false
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.TemplateBase">
+            <summary>
+            Base class for untyped templates.
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.TemplateBase`1">
+            <summary>
+            Base class for all strongtyped templates.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Vega.USiteBuilder.TemplateBase`1.CurrentContent">
+            <summary>
+            Gets the current content item.
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.ManagerBase">
+            <summary>
+            Base class for all managers
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.ManagerBase.AddToSynchronized(System.String,System.String,System.Type)">
+            <summary>
+            This method checks if an item with the given name and alias is already synchronized.
+            This method is used to used as a constraint that all items must have unique names and aliases.
+            </summary>
+            <param name="name">Name of an item for synchronization. Can be null in which case name constraint is not checked</param>
+            <param name="alias">Alias of an item for synchronization.</param>
+            <param name="typeSynced">Type being synchronized</param>
+        </member>
+        <member name="M:Vega.USiteBuilder.ManagerBase.SynchronizeContentTypeProperties(System.Type,umbraco.cms.businesslogic.ContentType,System.Boolean@)">
+            <summary>
+            Synchronizes content type properties
+            </summary>
+            <param name="typeContentType">ContentType type</param>
+            <param name="contentType">Umbraco content type</param>
+            <param name="hadDefaultValues">set to true if some of properties has default values</param>
+        </member>
+        <member name="M:Vega.USiteBuilder.ManagerBase.RemoveIfObsolete(umbraco.cms.businesslogic.ContentType,System.Reflection.PropertyInfo,System.String)">
+            <summary>
+            Removes property if it's obsolete.
+            </summary>
+            <param name="contentType">Content type</param>
+            <param name="propInfo">Property info</param>
+            <param name="propertyAlias">Property alias</param>
+            <returns>True if property is obsolete and removed. False if this property is not obsolete</returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.WebUserControlsManager.SynchronizeUserControl(System.Type)">
+            <summary>
+            Synchronization of user control means only creating an macro if
+            control has appropriate attribute (MacroAttribute)
+            </summary>
+            <param name="typeUserControl"></param>
+        </member>
+        <member name="T:Vega.USiteBuilder.WebConfigManager">
+            <summary>
+            Class used to manipulate current website's web.config
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.DocumentTypeManager">
+            <summary>
+            Manages document types synchronization
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.DocumentTypeManager.HasSynchronizedDocumentTypes">
+            <summary>
+            Returns true if there's any document type synchronized (defined)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.DocumentTypeManager.GetDocumentTypeAttribute(System.Type)">
+            <summary>
+            Get's the document type attribute or returns attribute with default values if attribute is not found
+            </summary>
+            <param name="typeContentType">An document type type</param>
+            <returns></returns>
+        </member>
+        <member name="T:Vega.USiteBuilder.MemberTypeManager">
+            <summary>
+            Manages member type synchronization
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.MemberTypeManager.HasSynchronizedMemberTypes">
+            <summary>
+            Returns true if there's any member type synchronized (defined)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.MemberTypeManager.GetMemberTypeAttribute(System.Type)">
+            <summary>
+            Get's the member type attribute or returns attribute with default values if attribute is not found
+            </summary>
+            <param name="typeMemberType">An member type type</param>
+            <returns></returns>
+        </member>
+        <member name="T:Vega.USiteBuilder.Constants">
+            <summary>
+            Contains various application wide constants
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.MacroParameterType">
+            <summary>
+            Enumerates all macro parameter types
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.MacroParameterType.Bool">
+            <summary>
+            Bool Umbraco type
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.MacroParameterType.ContentAll">
+            <summary>
+            ContentAll Umbraco type
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.MacroParameterType.ContentRandom">
+            <summary>
+            ContentRandom Umbraco type
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.MacroParameterType.ContentSubs">
+            <summary>
+            ContentSubs Umbraco type
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.MacroParameterType.ContentTree">
+            <summary>
+            ContentTree Umbraco type
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.MacroParameterType.ContentType">
+            <summary>
+            ContentType Umbraco type
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.MacroParameterType.ContentTypeMultiple">
+            <summary>
+            ContentTypeMultiple Umbraco type
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.MacroParameterType.MediaCurrent">
+            <summary>
+            MediaCurrent Umbraco type
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.MacroParameterType.Number">
+            <summary>
+            Number Umbraco type
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.MacroParameterType.PropertyTypePicker">
+            <summary>
+            PropertyTypePicker Umbraco type
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.MacroParameterType.PropertyTypePickerMultiple">
+            <summary>
+            PropertyTypePickerMultiple Umbraco type
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.MacroParameterType.TabPicker">
+            <summary>
+            TabPicker Umbraco type
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.MacroParameterType.TabPickerMultiple">
+            <summary>
+            TabPickerMultiple Umbraco type
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.MacroParameterType.Text">
+            <summary>
+            Text Umbraco type
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.MacroParameterType.TextMultiLine">
+            <summary>
+            TextMultiLine Umbraco type
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.ContentHelper">
+            <summary>
+            This class contains methods for getting the strongly typed content from Umbraco
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.ContentHelper.PropertyConvertors">
+            <summary>
+            Contains list of all custom type convertors.
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.ContentHelper.RegisterDocumentTypePropertyConvertor(System.Type,Vega.USiteBuilder.Types.ICustomTypeConvertor)">
+            <summary>
+            Registers document type property convertor.
+            </summary>
+            <param name="propertyType">Document type property type</param>
+            <param name="convertor">Convertor implementation</param>
+        </member>
+        <member name="M:Vega.USiteBuilder.ContentHelper.GetChildren``1(System.Int32,System.Boolean)">
+            <summary>
+            Gets all children nodes of a given type from a given node id.
+            </summary>
+            <typeparam name="T">Strongly typed content item</typeparam>
+            <param name="parentId">Parent node id of all children to get</param>
+            <param name="deepGet">If true it does deep search for children in the whole content tree starting from node whose id is parentId)</param>
+        </member>
+        <member name="M:Vega.USiteBuilder.ContentHelper.GetChildren``1(System.Int32)">
+            <summary>
+            Gets all children nodes of a given type from a given node id.
+            Note: This method returns only first level children - it doesn't return children's children.
+            </summary>
+            <typeparam name="T">Strongly typed content item</typeparam>
+            <param name="parentId">Parent node id of all children to get</param>
+        </member>
+        <member name="M:Vega.USiteBuilder.ContentHelper.GetChildren(System.Int32)">
+            <summary>
+            Gets all children nodes from a given node id.
+            Note: This method returns only first level children - it doesn't return children's children.
+            </summary>
+            <param name="parentId">Parent node id of all children to get</param>
+        </member>
+        <member name="M:Vega.USiteBuilder.ContentHelper.GetChildren(System.Int32,System.Boolean)">
+            <summary>
+            Gets all children nodes from a given node id.
+            </summary>
+            <param name="parentId">Parent node id of all children to get</param>
+            <param name="deepGet">if set to <c>true</c> method will return children's children (complete tree).</param>
+            <returns></returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.ContentHelper.GetByNodeId``1(System.Int32)">
+            <summary>
+            Get's the content item by node id.
+            </summary>
+            <typeparam name="T">Strongly typed content item</typeparam>
+            <param name="nodeId">Node Id associated with the content item</param>
+            <returns>Content item</returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.ContentHelper.GetByNode``1(umbraco.presentation.nodeFactory.Node)">
+            <summary>
+            Get's the content item by node.
+            </summary>
+            <typeparam name="T">Strongly typed content item</typeparam>
+            <param name="node">node associated with the content item</param>
+            <returns>Content item</returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.ContentHelper.GetByNodeId(System.Int32)">
+            <summary>
+            Get's the content item by node id.
+            </summary>
+            <param name="nodeId">Node Id associated with the content item</param>
+            <returns>Content item</returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.ContentHelper.GetByNode(umbraco.presentation.nodeFactory.Node)">
+            <summary>
+            Get's the content item by node.
+            </summary>
+            <param name="node">node associated with the content item</param>
+            <returns>Content item</returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.ContentHelper.SelectContentNodes(System.String)">
+            <summary>
+            Gets the content by XPath query
+            </summary>
+            <param name="xpath"></param>
+            <returns>List of content that matches the XPath query</returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.ContentHelper.Save(Vega.USiteBuilder.DocumentTypeBase,System.Boolean)">
+            <summary>
+            Updates or adds the content item using current user. If content item already exists, it updates it.
+            If content item doesn't exists, it creates new content item.
+            </summary>
+            <param name="contentItem">Content item to update/add</param>
+            <param name="publish">If set to <c>true</c> it contentItem will be published as well.</param>
+        </member>
+        <member name="M:Vega.USiteBuilder.ContentHelper.Save(Vega.USiteBuilder.DocumentTypeBase)">
+            <summary>
+            Updates or adds the content item using current user. If content item already exists, it updates it. 
+            If content item doesn't exists, it creates new content item.
+            </summary>
+            <param name="contentItem">Content item to update/add</param>
+        </member>
+        <member name="M:Vega.USiteBuilder.ContentHelper.Save(Vega.USiteBuilder.DocumentTypeBase,umbraco.BusinessLogic.User,System.Boolean)">
+            <summary>
+            Updates or adds the content item. If content item already exists, it updates it. 
+            If content item doesn't exists, it creates new content item (in that case contentItem.Id will be set to newly created id).
+            </summary>
+            <param name="contentItem">Content item to update/add</param>
+            <param name="user">User used for add or updating the content</param>
+            <param name="publish">If set to <c>true</c> it contentItem will be published as well.</param>
+        </member>
+        <member name="M:Vega.USiteBuilder.ContentHelper.DeleteContent(System.Int32)">
+            <summary>
+            Deletes the content specified by id
+            </summary>
+            <param name="id">Content item id</param>
+        </member>
+        <member name="M:Vega.USiteBuilder.ContentHelper.IsInRecycleBin(Vega.USiteBuilder.DocumentTypeBase)">
+            <summary>
+            Returns true if content item is deleted and currently contained in the recycle bin.
+            </summary>
+            <param name="contentItem">Content item</param>
+        </member>
+        <member name="M:Vega.USiteBuilder.ContentHelper.IsInRecycleBin(System.String)">
+            <summary>
+            Checks if node with a given path is in the Recycle bin
+            </summary>
+            <param name="path">Node path</param>
+            <returns>true if in recycle bin</returns>
+        </member>
+        <member name="T:Vega.USiteBuilder.USiteBuilderConfigurationSection">
+            <summary>
+            Not used currently
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.SiteBuilderApplicationBase">
+            <summary>
+            Internal class
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.SiteBuilderApplicationBase.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vega.USiteBuilder.SiteBuilderApplicationBase"/> class.
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.Util">
+            <summary>
+            Contains various utility methods
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.Util.GetFirstLevelSubTypes(System.Type)">
+            <summary>
+            Gets all first level subtypes (directly inherited types) of type given as argument. 
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.Util.GetAllSubTypes(System.Type)">
+            <summary>
+            Get's all subtypes of a given type.
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.Util.GetSiteBuilderUmbracoUser">
+            <summary>
+            Returns login name of Umbraco user used by USiteBuilder (for creating document types, templates etc...)
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.Util.GetAttribute``1(System.Type)">
+            <summary>
+            Get's the attribute of a given type from the given type.
+            Note that if there are multiple attributes of the same type found, this method returns on the first one
+            so use this method only for searching attributes whose AllowMultiple is set to false.
+            </summary>
+            <typeparam name="T">Name of the attribute class</typeparam>
+            <param name="type">Type whose attributes will be searched</param>
+            <returns>Attribute found or null of attribute is not found</returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.Util.GetAttribute``1(System.Reflection.PropertyInfo)">
+            <summary>
+            Get's the attribute of a given type from the given type.
+            Note that if there are multiple attributes of the same type found, this method returns on the first one
+            so use this method only for searching attributes whose AllowMultiple is set to false.
+            </summary>
+            <typeparam name="T">Name of the attribute class</typeparam>
+            <param name="propertyInfo">PropertyInfo whose attributes will be searched</param>
+            <returns>Attribute found or null of attribute is not found</returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.Util.IsGenericArgumentTypeOf(System.Type,System.Type)">
+            <summary>
+            Returns true if typeArgument is used as an argument in generic type typeGeneric.
+            </summary>
+            <param name="typeGeneric">Generic type</param>
+            <param name="typeArgument">Generic type argument type</param>
+            <returns>true if typeArgument is used as an argument in generic type typeGeneric</returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.Util.GetAdminUser">
+            <summary>
+            Gets admin user
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.Util.GetMediaUrlById(System.Int32)">
+            <summary>
+            Get's media url by id
+            </summary>
+            <param name="mediaId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.Util.AddPropertyType(umbraco.cms.businesslogic.ContentType,umbraco.cms.businesslogic.datatype.DataTypeDefinition,System.String,System.String)">
+            <summary>
+            Fix for incompatible Umbraco versions
+            </summary>
+            <param name="contentType">Type of the content.</param>
+            <param name="dt">The dt.</param>
+            <param name="alias">The alias.</param>
+            <param name="name">The name.</param>
+        </member>
+        <member name="T:Vega.USiteBuilder.Types.RelatedLink">
+            <summary>
+            Related link type.
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.Types.Link">
+            <summary>
+            Base class for all link types in Umbraco
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.Types.Link.Title">
+            <summary>
+            Link title
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.Types.Link.Url">
+            <summary>
+            Link url
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.Types.Link.NewWindow">
+            <summary>
+            True if link should be opened in new window (target=_blank)
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.Types.RelatedLink.RelatedNodeId">
+            <summary>
+            Id of a node if Related link is Internal link or Media link.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.Types.RelatedLink.Type">
+            <summary>
+            Related link type (external or internal)
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.Types.RelatedLink.RelatedLinkType">
+            <summary>
+            Related link type
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.Types.RelatedLink.RelatedLinkType.Internal">
+            <summary>
+            Internal link
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.Types.RelatedLink.RelatedLinkType.External">
+            <summary>
+            External link
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.Types.RelatedLink.RelatedLinkType.Media">
+            <summary>
+            Link to media (exists only in RelatedLinksWithMedia data type)
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.UmbracoPropertyType">
+            <summary>
+            Document type property Data Type (as defined in Umbraco Data Types section)
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.Other">
+            <summary>
+            Use this property type in case you implemented you own, custom type.
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.ApprovedColor">
+            <summary>
+            Approved color
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.CheckboxList">
+            <summary>
+            Checkbox list
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.ContentPicker">
+            <summary>
+            Content picker
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.DatePickerWithTime">
+            <summary>
+            Date picker with time
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.DatePicker">
+            <summary>
+            Date picker (only date without time)
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.DropdownMultiple">
+            <summary>
+            Dropdown multiple
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.Dropdown">
+            <summary>
+            Drop down
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.FolderBrowser">
+            <summary>
+            Folder browser
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.Label">
+            <summary>
+            Label
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.MediaPicker">
+            <summary>
+            Media picker
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.MemberPicker">
+            <summary>
+            Member picker
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.Numeric">
+            <summary>
+            Numeric
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.Radiobox">
+            <summary>
+            Radio box
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.RelatedLinks">
+            <summary>
+            Related links
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.RichtextEditor">
+            <summary>
+            Richtext editor
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.SimpleEditor">
+            <summary>
+            Simple editor
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.Tags">
+            <summary>
+            Tags
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.TextboxMultiple">
+            <summary>
+            Multi line textbox
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.Textstring">
+            <summary>
+            One line of text
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.TrueFalse">
+            <summary>
+            Boolean (true/false)
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.UltimatePicker">
+            <summary>
+            Ultimate picker
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.UmbracoPropertyType.Upload">
+            <summary>
+            Upload
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.DocumentTypeDefaultValues">
+            <summary>
+            Holds default values related with document types
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.DocumentTypeDefaultValues.IconUrl">
+            <summary>
+            Default value for DocumentType Icon
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.DocumentTypeDefaultValues.Thumbnail">
+            <summary>
+            Default value for DocumentType Thumbnail
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.DocumentTypeDefaultValues.TabGenericProperties">
+            <summary>
+            Name of the Generic properties tab (default and standard Umbraco tab which exists in every DocumentType)
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.WebUserControlBase">
+            <summary>
+            Base class for untyped web user controls.
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.WebUserControlBase`1">
+            <summary>
+            Base class for typed web user controls.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.WebUserControlBase`1.ContentNodeId">
+            <summary>
+            Gets or sets the content node id of a content associated with this control.
+            Note: Default value of this property is the current node id.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.WebUserControlBase`1.Content">
+            <summary>
+            Gets the current content item.
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.Types.ICustomTypeConvertor">
+            <summary>
+            Interface for converting a value from umbraco xml.
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.Types.ICustomTypeConvertor.ConvertValueWhenRead(System.Object)">
+            <summary>
+            Converts inputValue to other type and returns converted value. This method is used when reading item from Umbraco.
+            </summary>
+            <param name="inputValue">Input value (for example string xml)</param>
+            <returns>Output value (instance of class created from input xml, could be anything)</returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.Types.ICustomTypeConvertor.ConvertValueWhenWrite(System.Object)">
+            <summary>
+            Converts inputValue to other type and returns converted value. This method is used when writting item to Umbraco (e.g. with ContentHelper.Save).
+            </summary>
+            <param name="inputValue">Input value (for example List of RelatedLinks)</param>
+            <returns>Output value (string or xml)</returns>
+        </member>
+        <member name="P:Vega.USiteBuilder.Types.ICustomTypeConvertor.ConvertType">
+            <summary>
+            Gets the Type that this convertor converts to and from
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.MemberHelper">
+            <summary>
+            This class contains methods for getting the strongly typed members from Umbraco
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.MemberHelper.Save(Vega.USiteBuilder.MemberTypeBase)">
+            <summary>
+            Updates or adds the member using current user. If member already exists, it updates it. 
+            If member doesn't exists, it creates new member.
+            </summary>
+            <param name="member">Content item to update/add</param>
+        </member>
+        <member name="M:Vega.USiteBuilder.MemberHelper.Save(Vega.USiteBuilder.MemberTypeBase,umbraco.BusinessLogic.User)">
+            <summary>
+            Updates or adds the member. If member already exists, it updates it. 
+            If member doesn't exists, it creates new member.
+            </summary>
+            <param name="member">Member to update/add</param>
+            <param name="user">User used for add or updating the content</param>
+        </member>
+        <member name="M:Vega.USiteBuilder.MemberHelper.GetAllMembers">
+            <summary>
+            Gets all members
+            </summary>
+            <returns>List of all members</returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.MemberHelper.GetCurrentMember">
+            <summary>
+            Get's the currently logged in member
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.MemberHelper.GetMembersByName(System.String,System.Boolean)">
+            <summary>
+            Gets members by name
+            </summary>
+            <param name="usernameToMatch">Part or full username (login name)</param>
+            <param name="matchByNameInsteadOfLogin">If true, uses it compares usernameToMatch with name instead of login name</param>
+            <returns></returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.MemberHelper.GetMemberFromEmail(System.String)">
+            <summary>
+            Gets member by email. Returns null if not found.
+            </summary>
+            <param name="email">Member email</param>
+            <returns>Member or null if not member with given email is not found</returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.MemberHelper.GetMemberFromLoginAndEncodedPassword(System.String,System.String)">
+            <summary>
+            Gets member by login and encoded password
+            </summary>
+            <param name="loginName">Member login name</param>
+            <param name="password">Member password</param>
+            <returns>Member found or null if no members are found</returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.MemberHelper.GetMemberFromLoginName(System.String)">
+            <summary>
+            Gets member by login name
+            </summary>
+            <param name="loginName">Member login name</param>
+            <returns>Member or null if member is not found</returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.MemberHelper.GetMemberFromLoginNameAndPassword(System.String,System.String)">
+            <summary>
+            Gets member from login name and password.
+            </summary>
+            <param name="loginName">Member login name</param>
+            <param name="password">Password</param>
+            <returns>Member or null if no members are founds</returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.MemberHelper.GetMemberById(System.Int32)">
+            <summary>
+            Gets member by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.MemberHelper.GetMember(umbraco.cms.businesslogic.member.Member)">
+            <summary>
+            Get's the member.
+            </summary>
+            <param name="member">Member</param>
+            <returns>Member</returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.MemberHelper.LoginWithFormsAuthentication(System.String,System.String,System.Boolean,System.Int32,System.Boolean)">
+            <summary>
+            Logins the specified user.
+            </summary>
+            <param name="username">Member username</param>
+            <param name="password">Member password</param>
+            <param name="rememberMe">If true, cookie will stay persistent untill manual logout</param>
+            <param name="timeOut">If user is not active on the website, after timeout seconds it'll be loggout</param>
+            <param name="redirectAfterAuthentication">If true, application redirects user away from Login page to url given in web.config (Forms authentication settings).</param>
+            <returns>True if user successfully logged in or false otherwise</returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.MemberHelper.LoginWithFormsAuthentication(System.String,System.Boolean,System.Int32,System.Boolean)">
+            <summary>
+            Logins the specified user identified by username without password checking.
+            </summary>
+            <param name="username">Member username</param>
+            <param name="rememberMe">If true, cookie will stay persistent untill manual logout</param>
+            <param name="timeOut">If user is not active on the website, after timeout seconds it'll be loggout</param>
+            <param name="redirectAfterAuthentication">If true, application redirects user away from Login page to url given in web.config (Forms authentication settings).</param>
+            <returns>True if user successfully logged in or false otherwise</returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.MemberHelper.LogoutFormsAuthentication">
+            <summary>
+            Logouts the current logged-in user.
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.MemberHelper.IsLoggedIn">
+            <summary>
+            Determines whether user is authenticated.
+            </summary>
+            <returns>
+                <c>true</c> if user is authenticated; otherwise <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.TemplateManager.GetAllTemplates(System.Type)">
+            <summary>
+            Returns all templates which are using given document type
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.TemplateAttribute">
+            <summary>
+            Sets the template properties.
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.TemplateAttribute.#ctor">
+            <summary>
+            Sets the template properties.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.TemplateAttribute.AllowedForDocumentType">
+            <summary>
+            Default value of this property is true.
+            Indicates if this template should be set as allowed template
+            for a DocumentType to which this template is strongly typed.
+            Note: if this template is not strongly typed than setting
+            this property makes not sense and is ignored.
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.DocumentTypeBase">
+            <summary>
+            Base class for all document types.
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.DocumentTypeBase.#ctor">
+            <summary>
+            Base class for all document types.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeBase.CreateDate">
+            <summary>
+            Create date of this content item.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeBase.UpdateDate">
+            <summary>
+            Last update date of this content item.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeBase.CreatorId">
+            <summary>
+            Id of the user who created this content item.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeBase.CreatorName">
+            <summary>
+            Name of the user who created this content item.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeBase.Id">
+            <summary>
+            Id of this content item.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeBase.Name">
+            <summary>
+            Name of this content item.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeBase.NiceUrl">
+            <summary>
+            Nice url of this content item.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeBase.NodeTypeAlias">
+            <summary>
+            Document Type alias of this content item.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeBase.ParentId">
+            <summary>
+            Id of a parent node of this content item.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeBase.Path">
+            <summary>
+            Path of this content item.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeBase.SortOrder">
+            <summary>
+            Sort order of this content item.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeBase.Template">
+            <summary>
+            Template associated with this content item.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeBase.Url">
+            <summary>
+            Url of this content item
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeBase.Version">
+            <summary>
+            Version of this content item
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeBase.WriterID">
+            <summary>
+            Writer id of this content item
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeBase.WriterName">
+            <summary>
+            Name of the Writer of this content item
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.ContentUtil">
+            <summary>
+            NOT USED YET
+            </summary>
+        </member>
+        <member name="F:Vega.USiteBuilder.ContentUtil.PropertyConvertors">
+            <summary>
+            Contains list of all custom type convertors.
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.ContentUtil.RegisterDocumentTypePropertyConvertor(System.Type,Vega.USiteBuilder.Types.ICustomTypeConvertor)">
+            <summary>
+            Registers document type property convertor.
+            </summary>
+            <param name="propertyType">Document type property type</param>
+            <param name="convertor">Convertor implementation</param>
+        </member>
+        <member name="T:Vega.USiteBuilder.MacroParameterAttribute">
+            <summary>
+            Marks a property as a macro parameter.
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.MacroParameterAttribute.#ctor(Vega.USiteBuilder.MacroParameterType)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="type">Type of this macro parameter</param>
+        </member>
+        <member name="P:Vega.USiteBuilder.MacroParameterAttribute.Show">
+            <summary>
+            Gets or sets if this parameter should be shown.
+            Default value: false
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.MacroParameterAttribute.Name">
+            <summary>
+            Gets or sets macro parameter name.
+            Default value: Name of the property.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.MacroParameterAttribute.Type">
+            <summary>
+            Gets the macro parameter type.
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.Types.RelatedLinksConvertor">
+            <summary>
+            Implements conversion from xml to RelatedLink collection
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.Types.RelatedLinksConvertor.ConvertValueWhenRead(System.Object)">
+            <summary>
+            Converts inputValue which is xml to List of RelatedLink
+            </summary>
+            <param name="inputValue">Input value (for example string xml)</param>
+            <returns>
+            List of RelatedLink created from input xml or empty list if there are no links
+            </returns>
+        </member>
+        <member name="M:Vega.USiteBuilder.Types.RelatedLinksConvertor.ConvertValueWhenWrite(System.Object)">
+            <summary>
+            Converts inputValue (List of RelatedLinks) to XML
+            </summary>
+            <param name="inputValue">Input value (for example List of RelatedLinks)</param>
+            <returns>Output value (Xml representing related links)</returns>
+        </member>
+        <member name="P:Vega.USiteBuilder.Types.RelatedLinksConvertor.ConvertType">
+            <summary>
+            Gets the Type that this convertor converts to and from
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.Configuration.USiteBuilderConfiguration">
+            <summary>
+            Holds uSiteBuilder configuration settings (read from web.config)
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.Configuration.USiteBuilderConfiguration.ApiUser">
+            <summary>
+            Get's username of umbraco user whose account is used with Umbraco API
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.DocumentTypePropertyAttribute">
+            <summary>
+            Marks the property as a document type property
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.DocumentTypePropertyAttribute.#ctor(Vega.USiteBuilder.UmbracoPropertyType)">
+            <summary>
+            Only umbraco data type is required.
+            If you don't specify other named parameters, default values will be used.
+            </summary>
+            <param name="type">Umbraco Data Type related with this property</param>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypePropertyAttribute.Name">
+            <summary>
+            Name of this property. If name is not specified, name of the class is taken as a property name.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypePropertyAttribute.Type">
+            <summary>
+            Sets the corresponding umbraco data type. 
+            For types not covered with this enumeration (including custom types) use UmbracoPropertyType.Other and 
+            than set OtherTypeName attribute.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypePropertyAttribute.OtherTypeName">
+            <summary>
+            Name of the a data type. This property is used only if Type is set to UmbracoPropertyType.Other.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypePropertyAttribute.Tab">
+            <summary>
+            Tab on which this property will be shown.
+            If specified Tab does not exists in this document type it will be automatically created.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypePropertyAttribute.Mandatory">
+            <summary>
+            Indicates if this property is mandatory when user creates content.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypePropertyAttribute.ValidationRegExp">
+            <summary>
+            Validation reg expression.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypePropertyAttribute.Description">
+            <summary>
+            Property type description
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypePropertyAttribute.DefaultValue">
+            <summary>
+            Default value for the property. Note that setting up default values for properties 
+            whose type is a complex type (e.g. Related links) requires this value to be right 
+            formated xml.
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.MemberTypeAttribute">
+            <summary>
+            Declares a class as MemberType. You can use this attribute to set various Umbraco properties of this Member type.
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.MemberTypeAttribute.#ctor">
+            <summary>
+            Provides access to various Umbraco properties of this Member type.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.MemberTypeAttribute.Name">
+            <summary>
+            Name of this Member Type
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.MemberTypeAttribute.IconUrl">
+            <summary>
+            Icon property of a Member Type.
+            Default value: folder.gif.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.MemberTypeAttribute.Thumbnail">
+            <summary>
+            Thumbnail property of a Member Type.
+            Default value: folder.png
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.MemberTypeAttribute.Description">
+            <summary>
+            Description of a Member Type
+            Default value: empty
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.DocumentTypeAttribute">
+            <summary>
+            Provides access to various Umbraco properties of this document type.
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.DocumentTypeAttribute.#ctor">
+            <summary>
+            Provides access to various Umbraco properties of this document type.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeAttribute.Name">
+            <summary>
+            Name of this document type
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeAttribute.IconUrl">
+            <summary>
+            Icon property of a Document Type.
+            Default value: folder.gif.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeAttribute.Thumbnail">
+            <summary>
+            Thumbnail property of a Document Type.
+            Default value: folder.png
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeAttribute.Description">
+            <summary>
+            Description of a Document Type
+            Default value: empty
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeAttribute.DefaultTemplate">
+            <summary>
+            Default template for this Document Type.
+            Default value: If there's only one template in application that is strongly typed with this Document Type,
+            then DefaultTemplate will be automatically set to that Document Type. If there are two or more
+            templates strongly typed with this Document Type, then DefaultTemplate will be left empy
+            (so user can choose template when creating content).
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeAttribute.AllowedChildNodeTypes">
+            <summary>
+            Defines which child nodes can be created as a content nodes under content node of this document type.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.DocumentTypeAttribute.AllowedTemplates">
+            <summary>
+            Defines which templates are allowed for this document type.
+            NOTE: default value of this property is null which means that allowed templates 
+            for this document type will be all templates that are using this document type
+            as its generic parameter. By setting this property to some not null value, default behaviour is overriden.
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.MemberTypeBase">
+            <summary>
+            Base class for member types
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.MemberTypeBase.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Creates new instasnce of member
+            </summary>
+            <param name="loginName">Member login name. Can be email</param>
+            <param name="email">The email.</param>
+            <param name="password">Member password</param>
+        </member>
+        <member name="M:Vega.USiteBuilder.MemberTypeBase.ChangePassword(System.String)">
+            <summary>
+            Changes the member password.
+            </summary>
+            <param name="newPassword">The new password.</param>
+        </member>
+        <member name="P:Vega.USiteBuilder.MemberTypeBase.Id">
+            <summary>
+            Member id
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.MemberTypeBase.UniqueId">
+            <summary>
+            Get's member's unique id
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.MemberTypeBase.Email">
+            <summary>
+            Member email. Must be unique.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.MemberTypeBase.LoginName">
+            <summary>
+            Login name of this user. Must be unique.
+            </summary>
+        </member>
+        <member name="P:Vega.USiteBuilder.MemberTypeBase.Password">
+            <summary>
+            Member Password
+            </summary>
+        </member>
+        <member name="T:Vega.USiteBuilder.MemberTypePropertyAttribute">
+            <summary>
+            Declares a member type property. Use this property in MemberType definition class
+            </summary>
+        </member>
+        <member name="M:Vega.USiteBuilder.MemberTypePropertyAttribute.#ctor(Vega.USiteBuilder.UmbracoPropertyType)">
+            <summary>
+            Declares a member type property. Use this property in MemberType definition class
+            </summary>
+            <param name="type">Property data type</param>
+        </member>
+    </members>
+</doc>

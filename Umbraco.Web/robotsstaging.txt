@@ -1,0 +1,3 @@
+# robots.txt for staging sites
+User-agent: *
+Disallow: /

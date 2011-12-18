@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+  <files>
+    <file>
+      <guid>Cultiv.DynamicRobots.dll</guid>
+      <orgPath>/bin</orgPath>
+      <orgName>Cultiv.DynamicRobots.dll</orgName>
+    </file>
+    <file>
+      <guid>PackageActionsContrib.dll</guid>
+      <orgPath>/bin</orgPath>
+      <orgName>PackageActionsContrib.dll</orgName>
+    </file>
+  </files>
+  <info>
+    <package>
+      <name>Cultiv.DynamicRobots</name>
+      <version>1.0.0</version>
+      <license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
+      <url>http://www.cultiv.nl/</url>
+      <requirements>
+        <major>3</major>
+        <minor>0</minor>
+        <patch>0</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>Sebastiaan Janssen</name>
+      <website>http://www.cultiv.nl/</website>
+    </author>
+    <readme><![CDATA[]]></readme>
+  </info>
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros />
+  <DictionaryItems />
+  <Languages />
+  <DataTypes />
+  <Actions>
+    <Action runat="install" undo="true" name="Cultiv.DynamicRobots" alias="AddHttpHandler" position="end" path="robots.txt" verb="*" type="Cultiv.DynamicRobots.RobotsTxt, Cultiv.DynamicRobots" />
+  </Actions>
+</umbPackage>

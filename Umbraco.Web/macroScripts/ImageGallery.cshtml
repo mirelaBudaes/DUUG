@@ -1,0 +1,20 @@
+﻿@if (Model.HasValue("Gallery"))
+{
+    @RenderGallery(Model)
+}
+
+@helper RenderGallery(dynamic node)
+{
+    dynamic mediaItems = node.Gallery.mediaItem;
+
+    if (mediaItems.Count() != 0)
+    {
+            foreach (var item in mediaItems)
+            {
+                var image = item.Image;
+               
+                    <img src="/ImageGen.ashx?image=@image.umbracoFile&height=75" alt="@image.Name" title="@image.Name" />                
+            }
+          
+    }
+}

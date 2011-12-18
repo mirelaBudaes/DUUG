@@ -1,0 +1,11 @@
+_ReSharper.DUUG
+Resources
+obj
+*.mdf
+*.ldf
+*.pdb
+dummy.txt
+Umbraco.Web/App_Data/TEMP
+Umbraco.Web/App_Data/umbraco.config
+Umbraco.Web/media/*/Cached
+*/bin/MindBus.Extensions.dll

@@ -1,0 +1,53 @@
+﻿@{
+    var root = Model.AncestorOrSelf(1);
+
+    var overviewRoots = root.Children.Where("NodeTypeAlias == \"Overview\"");
+
+    dynamic eventRoot = null;
+
+   
+    foreach (var overviewRoot in overviewRoots)
+    {
+        if (overviewRoot.Children.Where("NodeTypeAlias == \"Event\"").FirstOrDefault() != null)
+        {
+            eventRoot = overviewRoot;
+            break;
+        }
+    }
+
+    if (eventRoot == null)
+    { return; }
+
+    var events = eventRoot.Children.Where("NodeTypeAlias == \"Event\"");
+    
+    var itemsShownString = (Html.Raw(Parameter.ItemsShown));
+    int itemsShown = 0;
+
+    if (itemsShownString != null)
+    {  int.TryParse(itemsShownString.ToString(), out itemsShown);}
+
+    var items = events.Where("EndingTime >= DateTime.Now").OrderBy("StartingTime");
+    
+    if(itemsShown > 0)
+    {
+        items = items.Take(itemsShown);
+    }
+
+    foreach (var item in items)
+    {
+        var startingTime = item.StartingTime;
+        
+    <a href="@item.Url" class="eventblock">
+        <img src="/static/img/event.jpg" />
+        <div class="date">
+            <span>@String.Format("{0:dd}", @startingTime)</span>@String.Format("{0:MMM}", @startingTime)</div>
+        <div class="details">
+            <span class="time">@String.Format("{0:dd MMMM yyyy 'OM' HH':'mm}", @startingTime)</span><span
+                class="location">@item.Location - @item.LocationCity</span></div>
+        <div class="title bier">@item.pageTitle</div>
+    </a>
+    }
+}
+
+
+

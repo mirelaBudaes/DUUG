@@ -1,0 +1,7 @@
+<browsers>
+  <browser refID="Default">
+    <controlAdapters>
+      <adapter controlType="umbraco.cms.presentation._umbraco" adapterType="Cultiv.EnvironmentIndicator.IndicatorAdapter" />
+    </controlAdapters>
+  </browser>
+</browsers>

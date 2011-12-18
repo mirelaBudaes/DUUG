@@ -1,0 +1,60 @@
+﻿@using System.Linq
+@if (Model.HasValue("Gallery"))
+{
+    var images = Model.Gallery.mediaItem;
+
+    if (images.Count() > 0)
+    {
+        var firstImage = images[1];
+
+        <img src="/ImageGen.ashx?image=@firstImage.Image.umbracoFile&height=180" alt="@firstImage.Image.Name" title="@firstImage.Image.Name" class="imageblock"/>
+    }
+}
+<div class="detailsblock">
+    <p>
+        @Model.Introduction
+    </p>
+    <dl>
+        <dt>Author:</dt>
+        <dd>
+            @if ((Model.HasValue("AuthorEmail")))
+            {
+                <a href="mailto: @Model.AuthorEmail">@Model.Author</a>
+            }
+            else
+            {
+                @Model.Author
+            }
+        </dd>
+        @{
+            var website = Model.Website;
+            if (!website.StartsWith("http://"))
+            {
+                website = "http://" + website;
+            }
+        
+        }
+        <dt>Website:</dt>
+        <dd>
+            <a href="http://@website">http://@website</a></dd>
+        @if (Model.HasValue("Twitter"))
+        {
+            var twitter = Model.Twitter;
+            if (!twitter.StartsWith("@"))
+            {
+                twitter = "@" + twitter;
+            }
+
+            <dt>Twitter:</dt>
+            <dd>
+                <a href="http://www.twitter.com/@twitter.Replace("@", string.Empty)">@twitter</a>
+            </dd>
+        }
+    </dl>
+</div>
+<div class="contentblock">
+    @RenderPage("~/macroScripts/ImageGallery.cshtml")
+    @Model.BodyText
+    <p>
+        <a href="#" class="button">Visit @Model.Website &raquo;</a></p>
+</div>

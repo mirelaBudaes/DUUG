@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+  <files>
+    <file>
+      <guid>ImageGen.dll</guid>
+      <orgPath>/bin</orgPath>
+      <orgName>ImageGen.dll</orgName>
+    </file>
+    <file>
+      <guid>ImageGen.sample.config</guid>
+      <orgPath>/config</orgPath>
+      <orgName>ImageGen.sample.config</orgName>
+    </file>
+    <file>
+      <guid>ImageGen.ashx</guid>
+      <orgPath>/umbraco</orgPath>
+      <orgName>ImageGen.ashx</orgName>
+    </file>
+    <file>
+      <guid>ImageGen.aspx</guid>
+      <orgPath>/umbraco</orgPath>
+      <orgName>ImageGen.aspx</orgName>
+    </file>
+  </files>
+  <info>
+    <package>
+      <name>ImageGen</name>
+      <version>2.0.1</version>
+      <license url="http://umbraco.percipientstudios.com/imagegen/license.aspx">Proprietary</license>
+      <url>http://umbraco.percipientstudios.com/imagegen.aspx</url>
+      <requirements>
+        <major>3</major>
+        <minor>0</minor>
+        <patch>0</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>Douglas Robar</name>
+      <website>http://www.percipientstudios.com</website>
+    </author>
+    <readme><![CDATA[<p>ImageGen provides:<br/>
+- Dynamic image generation of text graphics<br/>
+- Dynamic image resizing of existing images<br/>
+- Dynamic superimposing of text on images<br/>
+- Caching of generated images</p>
+
+<p>Common uses of ImageGen include:<br/>
+- Creating headings using corporate fonts and colors<br/>
+- Making thumbnails of screenshots<br/>
+- Resizing images to a common size<br/>
+- Creating photo albums</p>
+
+<p><i>To activate the Professional features, please purchase a registration key from the author's website.</i></p>]]></readme>
+  </info>
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros />
+</umbPackage>

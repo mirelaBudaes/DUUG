@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main_ex.Master.cs" Inherits="MindBus.Extensions.MasterPages.Main"  MasterPageFile="~/umbraco/masterpages/default.master" %>
+<%@ Register Namespace="ClientDependency.Core.Controls" Assembly="ClientDependency.Core" TagPrefix="CD" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolderDefault" runat="server"><!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <umbraco:macro filelocation="~/macroScripts/Default/MetaTags.cshtml" fixedtitle="Site Name" runat="server" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <CD:ClientDependencyLoader ID="ClientDependencyLoader1" runat="server">
+	  <Paths>
+		  <CD:ClientDependencyPath Name="Styles" Path="~/css" />
+		  <CD:ClientDependencyPath Name="Scripts" Path="~/js" />
+		  <CD:ClientDependencyPath Name="LibScripts" Path="~/js/libs" />
+	  </Paths>
+  </CD:ClientDependencyLoader>
+  <%-- Example of JS includes: --%>
+  <%--<CD:JsInclude runat="server" FilePath="jquery-1.6.2.min.js" Priority="0" PathNameAlias="LibScripts" />--%> 
+  <%--<CD:JsInclude runat="server" FilePath="modernizr-2.0.6.min.js" Priority="10" PathNameAlias="LibScripts" />--%>         
+  <%--<CD:JsInclude runat="server" FilePath="plugins.js" Priority="20" PathNameAlias="Scripts" />--%>
+  <%--<CD:JsInclude runat="server" FilePath="script.js" Priority="30" PathNameAlias="Scripts" />--%>  
+  <CD:CssInclude ID="CssInclude1" runat="server" FilePath="style.css" Priority="0" PathNameAlias="Styles" />
+
+ 
+ 
+  <script type="text/javascript">
+    <umbraco:Macro FileLocation="~/macroScripts/Default/SiteAnalytics.cshtml" runat="server" />
+  </script>
+</head>
+  <body>    
+    <div id="container">
+      <header>
+
+      </header>
+      <div id="main" role="main">
+    
+        <asp:ContentPlaceHolder Id="body" runat="server" />
+
+      </div>
+      <footer>
+
+      </footer>
+    </div>
+
+  </body>
+</html>
+</asp:Content>

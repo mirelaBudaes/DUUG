@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+  <files>
+    <file>
+      <guid>Offroadcode.Umbraco.XSLTouch.DotNet4.dll</guid>
+      <orgPath>/bin</orgPath>
+      <orgName>Offroadcode.Umbraco.XSLTouch.DotNet4.dll</orgName>
+    </file>
+  </files>
+  <info>
+    <package>
+      <name>XSLTouch</name>
+      <version>1.1</version>
+      <license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
+      <url>http://www.offroadcode.com/2010/4/28/-xsltouch,-taking-the-pain-out-of-editing-included-xslt-templates.aspx</url>
+      <requirements>
+        <major>3</major>
+        <minor>0</minor>
+        <patch>0</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>Pete Duncanson</name>
+      <website>http://www.offroadcode.com</website>
+    </author>
+    <readme><![CDATA[XSLtouch for Umbraco. 
+
+Automatically "touches" the modified date of any XSLT files that include a child XSLT file when that child is saved. This causes .net's XSLT cacher to refresh both files to ensure that what you see when you next run it is what you expect. 
+
+Install and forget. Debug log messages are written every time a file is changed and touched for reference. 
+
+To test just include one XSL file in another using make a change in the child file and notice the parent's modified date gets changed too. 
+
+Standalone version for other .net projects available too at http://www.offroadcode.com/xsltouch.html 
+
+Any bugs or feedback let me know (pete@offroadcode.com or via #xsltouch on twitter where you can get me on @peteduncanson).]]></readme>
+  </info>
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros />
+  <DictionaryItems />
+  <Languages />
+  <DataTypes />
+</umbPackage>

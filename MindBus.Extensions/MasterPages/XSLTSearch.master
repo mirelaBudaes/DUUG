@@ -1,0 +1,27 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/Main.Master" AutoEventWireup="true"  CodeBehind="XSLTSearch.Master.cs" Inherits="MindBus.Extensions.MasterPages.XsltSearch" %>
+
+<asp:Content ContentPlaceHolderId="body" runat="server">
+<div id="wrapper">
+  <div id="content">
+    <div id="contentHeader">  
+        <h2><umbraco:Item runat="server" field="pageName"/></h2>
+    </div>
+
+    <umbraco:Macro runat="server" Alias="XSLTsearch"
+      macroAlias="XSLTsearch"
+      source="-1"
+      searchFields="@nodeName,metaKeywords,metaDescription,bodyText"
+      previewFields="bodyText,metaDescription"
+      previewType="beginning"
+      searchBoxLocation="bottom"
+      resultsPerPage="5"
+      previewChars="255"
+      showPageRange="0"
+      showOrdinals="0"
+      showScores="0"
+      showStats="1">
+    </umbraco:Macro>
+
+  </div>
+</div>  
+</asp:Content>

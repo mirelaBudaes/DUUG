@@ -1,0 +1,36 @@
+<Project ToolsVersion="4.0"
+         DefaultTargets="Live"
+         xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <UsingTask TaskName="TransformXml"
+               AssemblyFile="..\Release\Microsoft.Web.Publishing.Tasks.dll"/>
+
+    <PropertyGroup>
+        <ProjectPath>..\</ProjectPath>
+		
+        <WebConfigTransformInputFile>$(ProjectPath)\wwwroot\Web.config</WebConfigTransformInputFile>
+        <WebConfigTransformFile>$(ProjectPath)\Release\ConfigTransforms\Web.Live.config</WebConfigTransformFile>
+        <WebConfigTransformOutputFile>$(ProjectPath)\Release\Live\Web.config</WebConfigTransformOutputFile>
+
+		<UmbracoSettingsTransformInputFile>$(ProjectPath)\wwwroot\config\umbracoSettings.config</UmbracoSettingsTransformInputFile>
+        <UmbracoSettingsTransformFile>$(ProjectPath)\Release\ConfigTransforms\umbracoSettings.Live.config</UmbracoSettingsTransformFile>
+        <UmbracoSettingsTransformOutputFile>$(ProjectPath)\Release\Live\umbracoSettings.config</UmbracoSettingsTransformOutputFile>
+		
+        <StackTraceEnabled>False</StackTraceEnabled>
+    </PropertyGroup>
+
+    <Target Name="Live">
+	
+        <TransformXml Source="$(WebConfigTransformInputFile)"
+                      Transform="$(WebConfigTransformFile)"
+                      Destination="$(WebConfigTransformOutputFile)"
+                      Condition=""
+                      StackTrace="$(StackTraceEnabled)" />
+					  
+        <TransformXml Source="$(UmbracoSettingsTransformInputFile)"
+                      Transform="$(UmbracoSettingsTransformFile)"
+                      Destination="$(UmbracoSettingsTransformOutputFile)"
+                      Condition=""
+                      StackTrace="$(StackTraceEnabled)" />		
+    </Target>
+</Project>

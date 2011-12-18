@@ -1,0 +1,49 @@
+﻿@ListChildNodes(Model.AncestorOrSelf(1))
+
+@helper ListChildNodes(dynamic startNode)
+{
+    Response.ContentType = "text/xml";
+    const int maxLevelForSiteMap = 100;
+    
+    
+    foreach (var node in startNode.Children
+        .Where("HasAccess")
+        .Where("!IsProtected")
+        .Where("umbracoNaviHide == false")
+      )
+    {     
+        if(node.template > 0) {
+            <url>
+                <loc>@GetUrlWithDomainPrefix(node.Url)</loc>
+                <lastmod>@(string.Format("{0:s}+00:00", node.UpdateDate))</lastmod>
+                @if (node.SearchEngineSitemapChangeFreq.ToString() != "")
+                {
+                    <changefreq>@node.SearchEngineSitemapChangeFreq</changefreq>
+                }
+                @if (node.SearchEngineSitemapPriority.ToString() != "")
+                {
+                    <priority>@node.SearchEngineSitemapPriority</priority>
+                }
+            </url>
+        }
+            
+        if (node.Level <= maxLevelForSiteMap && node.ChildrenAsList.Count > 0)
+        {
+            @ListChildNodes(node)
+        } 
+    }
+}
+
+@functions {
+    private static string GetUrlWithDomainPrefix(string url) {
+        if (url.StartsWith("/"))
+          url = url.Substring(1);
+                                                              
+        var domainPrefix = string.Format("http://{0}/", HttpContext.Current.Request.ServerVariables["HTTP_HOST"]);
+                                                              
+        if (url.StartsWith(domainPrefix))
+            return url;
+        else
+            return domainPrefix + url;
+    }
+}

@@ -1,0 +1,53 @@
+﻿@{
+    var root = Model.AncestorOrSelf(1);
+    var overviewRoots = root.Children.Where("NodeTypeAlias == \"Overview\"");
+
+    dynamic projectRoot = null;
+
+    foreach (var overviewRoot in overviewRoots)
+    {
+        if (overviewRoot.Children.Where("NodeTypeAlias == \"Project\"").FirstOrDefault() != null)
+        {
+            projectRoot = overviewRoot;
+            break;
+        }
+    }
+
+    if (projectRoot == null)
+    { return; }
+
+    var projects = projectRoot.Children.Where("NodeTypeAlias == \"Project\"");
+
+    var itemsShownString = (Html.Raw(Parameter.ItemsShown));
+    int itemsShown = 0;
+
+    if (itemsShownString != null)
+    { int.TryParse(itemsShownString.ToString(), out itemsShown); }
+
+    if (itemsShown > 0)
+    {
+        projects = projects.Take(itemsShown);
+    }
+
+    foreach (var item in projects)
+    {
+    <div class="projectblock">
+        <h3>@item.pageTitle</h3>
+        <p>
+            @if (item.HasValue("Gallery"))
+            {
+                var images = item.Gallery.mediaItem;
+
+                if (images.Count() > 0)
+                {
+                    var firstImage = images[1].Image;
+                <img src="/ImageGen.ashx?image=@firstImage.umbracoFile&width=125" alt="@firstImage.Name" title="@firstImage.Name"/>
+                }
+            }
+            @item.Introduction
+        </p>
+        <p>
+            <a href="@item.Url" class="button">Projectpagina &raquo;</a></p>
+    </div>
+    }
+}

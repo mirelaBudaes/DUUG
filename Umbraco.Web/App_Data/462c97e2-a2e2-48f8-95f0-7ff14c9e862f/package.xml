@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+	<files><file><guid>f6b04121-4f47-4d25-aaac-f1b569f907c7.dll</guid><orgPath>/bin</orgPath><orgName>uComponents.Core.dll</orgName></file><file><guid>3d24d967-e58b-463c-b309-1f9739e6554b.ascx</guid><orgPath>/umbraco/plugins/uComponents</orgPath><orgName>uComponentsInstaller.ascx</orgName></file></files>
+	<info>
+		<package>
+			<name>uComponents</name>
+			<version>2.0.1.0</version>
+			<license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
+			<url>http://ucomponents.codeplex.com</url>
+			<requirements>
+				<major>4</major>
+				<minor>5</minor>
+				<patch>2</patch>
+			</requirements>
+		</package>
+		<author>
+			<name>uComponents Team</name>
+			<website>http://ucomponents.codeplex.com</website>
+		</author>
+		<readme><![CDATA[uComponents is a collaborative project for creating components for Umbraco including data types, XSLT extensions, controls and more.
+Containing 20 data-types, 7 XSLT extension libraries, keyboard short-cuts, drag-n-drop functionality, as well as great developer utilities - uComponents is one of the must-have packages for any Umbraco-powered website!
+Full documentation can be found here: http://ucomponents.codeplex.com/documentation
+DataTypes:
+* Auto Complete
+* Character Limit
+* Country Picker
+* Dropdown CheckList
+* Elastic TextBox
+* File Picker
+* Image DropDown
+* Incremental TextBox
+* Multi-Node Tree Picker
+* MultiPicker Relations
+* Multiple Dates
+* Radiobutton List with Images
+* Related Links with Media
+* Slider
+* Styled TextBox
+* ToggleBox
+* Unique Property
+* Url Picker
+* User Picker
+* XPath CheckBoxList
+XSLT Extesions:
+* CMS
+* Dates
+* IO
+* Members
+* Strings
+* Urls
+* Xml
+Code Utilities
+* uQuery extensions
+Not Found Handlers
+* 301 Moved Permanently
+* Multi-site Page Not Found
+UI Enhancements:
+* Keyboard navigation in tree
+* Shortcuts for tray icons/tabs
+* Drag and drop for content pickers (including the Multi-Node Tree Picker)
+Visit the CodePlex site for full details, documentation, roadmap and source code.
+http://ucomponents.codeplex.com]]></readme>
+	</info>
+	<DocumentTypes />
+	<Templates />
+	<Stylesheets />
+	<Macros />
+	<DictionaryItems />
+	<Languages />
+	<DataTypes />
+	<control>/umbraco/plugins/uComponents/uComponentsInstaller.ascx</control>
+	<Actions />
+</umbPackage>

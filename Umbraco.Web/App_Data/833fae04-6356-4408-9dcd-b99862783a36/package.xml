@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+	<files><file><guid>6dfaf1d3-41e9-4dc0-8695-dadd4ef9de79.dll</guid><orgPath>/bin</orgPath><orgName>uComponents.Core.dll</orgName></file><file><guid>da195a63-3183-4647-9912-36b89602d8d5.ascx</guid><orgPath>/umbraco/plugins/uComponents</orgPath><orgName>uComponentsInstaller.ascx</orgName></file></files>
+	<info>
+		<package>
+			<name>uComponents</name>
+			<version>3.0</version>
+			<license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
+			<url>http://ucomponents.codeplex.com</url>
+			<requirements>
+				<major>4</major>
+				<minor>5</minor>
+				<patch>2</patch>
+			</requirements>
+		</package>
+		<author>
+			<name>uComponents Team</name>
+			<website>http://ucomponents.org</website>
+		</author>
+		<readme><![CDATA[uComponents is a collaborative project for creating components for Umbraco including data types, XSLT extensions, controls and more.
+Containing over 30 data-types, 10 XSLT extension libraries, keyboard short-cuts, drag-n-drop functionality, as well as great developer utilities - uComponents is one of the must-have packages for any Umbraco-powered website!
+Full documentation can be found here: http://ucomponents.codeplex.com/documentation
+DataTypes:
+* Auto Complete
+* Character Limit
+* CheckBox Tree
+* Country Picker
+* DataType Grid
+* Dropdown CheckList
+* Elastic TextBox
+* Enum CheckBoxList
+* Enum DropDownList
+* File DropDownList
+* File Picker
+* Image DropDown
+* Incremental TextBox
+* JSON Dropdown
+* Multi-Node Tree Picker
+* MultiPicker Relations
+* Multiple Dates
+* Multiple Textstring
+* Multi-Url Picker
+* Notes
+* RadioButton List with Images
+* Related Links with Media
+* Render Macro
+* Similarity
+* Slider
+* SQL DropDownList
+* Styled TextBox
+* TextImage
+* Textstring Array
+* ToggleBox
+* Unique Property
+* Url Picker
+* User Picker
+* XPath CheckBoxList
+* XPath DropDownList
+XSLT Extesions:
+* CMS
+* Dates
+* IO
+* Media
+* Members
+* Nodes
+* Request
+* Search
+* Strings
+* Urls
+* Xml
+Code Utilities
+* uQuery extensions
+Not Found Handlers
+* 301 Moved Permanently
+* Multi-site Page Not Found
+* 404 Page Not Found
+UI Enhancements:
+* Keyboard navigation in tree
+* Shortcuts for tray icons/tabs
+* Drag and drop for content pickers (including the Multi-Node Tree Picker)
+Controls
+* GetMedia
+* RenderTemplate
+Visit the CodePlex site for full details, documentation, roadmap and source code.
+http://ucomponents.codeplex.com]]></readme>
+	</info>
+	<DocumentTypes />
+	<Templates />
+	<Stylesheets />
+	<Macros />
+	<DictionaryItems />
+	<Languages />
+	<DataTypes />
+	<control>/umbraco/plugins/uComponents/uComponentsInstaller.ascx</control>
+	<Actions>
+		<Action runat="install" undo="true" alias="uComponents_Uninstaller" />
+	</Actions>
+</umbPackage>

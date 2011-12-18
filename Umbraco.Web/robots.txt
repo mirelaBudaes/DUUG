@@ -1,0 +1,15 @@
+# robots.txt for Umbraco
+User-agent: *
+Sitemap: http://{HTTP_HOST}/sitemapxml
+Disallow: /aspnet_client/
+Disallow: /bin/
+Disallow: /config/
+Disallow: /css/
+Disallow: /data/
+Disallow: /scripts/
+Disallow: /umbraco/
+Disallow: /umbraco_client/
+Disallow: /usercontrols/
+Disallow: /xslt/
+Disallow: /*.axd
+# WebMatrix 1.0

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+  <files>
+    <file>
+      <guid>TheOutfield.UmbExt.AutoExpireClientDependency.dll</guid>
+      <orgPath>/bin</orgPath>
+      <orgName>TheOutfield.UmbExt.AutoExpireClientDependency.dll</orgName>
+    </file>
+  </files>
+  <info>
+    <package>
+      <name>AutoExpireClientDependency</name>
+      <version>1.0.1</version>
+      <license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
+      <url>http://our.umbraco.org/projects/developer-tools/autoexpireclientdependency</url>
+      <requirements>
+        <major>3</major>
+        <minor>0</minor>
+        <patch>0</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>Matt Brailsford</name>
+      <website>http://blog.mattbrailsford.com</website>
+    </author>
+    <readme><![CDATA[===============================================
+
+This package automatically expires the Client Dependency cache if any changes are detect in either /css or /scripts directories of an Umbraco site.
+
+This allows direct editing of css and script files either via the file system, or via the Umbraco UI and the Client Dependency cache will automatically expire.
+
+How to Use
+===============================================
+
+Just install the package and everything hooks up and runs automatically.]]></readme>
+  </info>
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros />
+  <DictionaryItems />
+  <Languages />
+  <DataTypes />
+</umbPackage>

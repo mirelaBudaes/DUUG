@@ -1,0 +1,46 @@
+﻿@{ 
+    var parent = Model.AncestorOrSelf(1);
+
+    if (parent != null)
+    {
+@*<ul id="mainnav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Jobs</a></li>
+                <li><a href="#">Community</a></li>
+                <li><a href="#">About DUUG</a></li>
+            </ul>*@
+        
+    <ul id="mainnav">
+        @foreach (var item in parent.Children.Where("Visible").Where("showInMainMenu"))
+        {
+            if (NodeShouldBeRendered(item))
+            {
+            @RenderNode(item, "")
+            }
+        }
+    </ul>
+    }
+}
+@helper RenderNode(dynamic item, string isLast)
+    {
+        var selected = Array.IndexOf(Model.Path.Split(','), item.Id.ToString()) >= 0 ? "active " : "";
+
+    var url = item.NodeTypeAlias == "Home" ? "/" : item.Url;
+	
+    <li class="@selected"><a href="@url" >@item.Name</a> </li>
+}
+@functions 
+{
+    private static bool NodeShouldBeRendered(dynamic item)
+    {
+        //Filter document types
+        if (item.NodeTypeAlias == "Overview" || item.NodeTypeAlias == "TextPage" || item.NodeTypeAlias == "Home")
+        {
+            return true;
+        }
+
+        return false;
+    }
+}

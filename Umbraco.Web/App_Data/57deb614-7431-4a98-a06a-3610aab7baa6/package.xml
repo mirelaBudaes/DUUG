@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+  <files>
+    <file>
+      <guid>cultiv.environment.browser</guid>
+      <orgPath>/App_Browsers</orgPath>
+      <orgName>cultiv.environment.browser</orgName>
+    </file>
+    <file>
+      <guid>Cultiv.EnvironmentIndicator.dll</guid>
+      <orgPath>/bin</orgPath>
+      <orgName>Cultiv.EnvironmentIndicator.dll</orgName>
+    </file>
+  </files>
+  <info>
+    <package>
+      <name>Cultiv.EnvironmentIndicator</name>
+      <version>1.0.2</version>
+      <license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
+      <url>http://cultiv.nl</url>
+      <requirements>
+        <major>3</major>
+        <minor>0</minor>
+        <patch>0</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>Sebastiaan Janssen</name>
+      <website>http://cultiv.nl</website>
+    </author>
+    <readme><![CDATA[If you're anything like me, you are always doing things in a live environment while you're supposed to be working on the dev environment... A case of picking the wrong window, oops!
+
+This package will give you a nice colored bar at the top of the Umbraco backend if you're logged in as an admin user. The package will "automagically" detect if you're working on your local machine or a remote machine and show a green bar for dev en red for live.
+
+To overrule this behavior, add this setting present to your web.config file (appSettings section):
+
+<add key="environment" value="live" />
+
+The values can be:
+- dev (green bar)
+- test (yellow bar)
+- beta (orange bar)
+- live (red bar)
+
+]]></readme>
+  </info>
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros />
+  <DictionaryItems />
+  <Languages />
+  <DataTypes />
+</umbPackage>

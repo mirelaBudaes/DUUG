@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+  <files>
+    <file>
+      <guid>CultivSearchEngineSitemap.xslt</guid>
+      <orgPath>/xslt</orgPath>
+      <orgName>CultivSearchEngineSitemap.xslt</orgName>
+    </file>
+    <file>
+      <guid>1ac9f8ed-e7d2-4669-a147-277b1eb9dec8_CultivSearchEngineSitemap.xslt</guid>
+      <orgPath>/xslt</orgPath>
+      <orgName>CultivSearchEngineSitemap.xslt</orgName>
+    </file>
+  </files>
+  <info>
+    <package>
+      <name>CultivSearchEngineSitemap</name>
+      <version>2.0.1</version>
+      <license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
+      <url>http://www.cultiv.nl</url>
+      <requirements>
+        <major>3</major>
+        <minor>0</minor>
+        <patch>0</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>Sebastiaan Janssen</name>
+      <website>http://www.cultiv.nl</website>
+    </author>
+    <readme><![CDATA[The Cultiv Search Engine Sitemap Package creates a sitemap that can be submitted to different search engines. 
+
+The resulting sitemap is 100% compliant with the sitemap XML specification on http://www.sitemaps.org/protocol.php 
+Therefore, this sitemap will work for Google and all the other search engines that support this protocol. 
+
+This package outputs the URL and the modified date, optionally you can add the update frequency and importance by adding these properties to your document types (and filling them in): 
+- searchEngineSitemapChangeFreq 
+- searchEngineSitemapPriority 
+
+After installing this, add a line to your robots.txt like this (substituting yourdomain.com with your own domain name of course):
+
+Sitemap: http://www.yourdomain.com/cultivsearchenginesitemap]]></readme>
+  </info>
+  <DocumentTypes />
+  <Templates>
+    <Template>
+      <Name>CultivSearchEngineSitemap</Name>
+      <Alias>CultivSearchEngineSitemap</Alias>
+      <Design><![CDATA[<%@ Master Language="C#" MasterPageFile="/umbraco/masterpages/default.master" AutoEventWireup="true" %>
+
+<asp:Content ContentPlaceHolderID="ContentPlaceHolderDefault" runat="server"><?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"> 
+	<umbraco:Macro Alias="CultivSearchEngineSitemap" runat="server"></umbraco:Macro>
+</urlset>
+</asp:Content>]]></Design>
+    </Template>
+  </Templates>
+  <Stylesheets />
+  <Macros>
+    <macro>
+      <name>CultivSearchEngineSitemap</name>
+      <alias>CultivSearchEngineSitemap</alias>
+      <scriptType>
+      </scriptType>
+      <scriptAssembly>
+      </scriptAssembly>
+      <xslt>CultivSearchEngineSitemap.xslt</xslt>
+      <useInEditor>False</useInEditor>
+      <refreshRate>0</refreshRate>
+      <properties />
+    </macro>
+  </Macros>
+  <DictionaryItems />
+  <Languages />
+  <DataTypes />
+</umbPackage>

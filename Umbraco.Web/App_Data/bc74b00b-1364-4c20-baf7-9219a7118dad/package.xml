@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+  <files>
+    <file>
+      <guid>DigibizAdvancedMediaPicker.dll</guid>
+      <orgPath>/bin</orgPath>
+      <orgName>DigibizAdvancedMediaPicker.dll</orgName>
+    </file>
+    <file>
+      <guid>DigibizTree.dll</guid>
+      <orgPath>/bin</orgPath>
+      <orgName>DigibizTree.dll</orgName>
+    </file>
+    <file>
+      <guid>crossdomain.xml</guid>
+      <orgPath>/</orgPath>
+      <orgName>crossdomain.xml</orgName>
+    </file>
+    <file>
+      <guid>Audio_icon.png</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>Audio_icon.png</orgName>
+    </file>
+    <file>
+      <guid>CreateMediaItem.aspx</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>CreateMediaItem.aspx</orgName>
+    </file>
+    <file>
+      <guid>DAMPScript.js</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>DAMPScript.js</orgName>
+    </file>
+    <file>
+      <guid>DAMPStyles.css</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>DAMPStyles.css</orgName>
+    </file>
+    <file>
+      <guid>DAMP_ImagePreview.ashx</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>DAMP_ImagePreview.ashx</orgName>
+    </file>
+    <file>
+      <guid>Delete.gif</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>Delete.gif</orgName>
+    </file>
+    <file>
+      <guid>DigibizAdvancedMediaPicker.ascx</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>DigibizAdvancedMediaPicker.ascx</orgName>
+    </file>
+    <file>
+      <guid>DigibizService.asmx</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>DigibizService.asmx</orgName>
+    </file>
+    <file>
+      <guid>Doc_icon.png</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>Doc_icon.png</orgName>
+    </file>
+    <file>
+      <guid>EditDAMP.aspx</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>EditDAMP.aspx</orgName>
+    </file>
+    <file>
+      <guid>Excel_icon.png</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>Excel_icon.png</orgName>
+    </file>
+    <file>
+      <guid>File_icon.png</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>File_icon.png</orgName>
+    </file>
+    <file>
+      <guid>Folder_icon.png</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>Folder_icon.png</orgName>
+    </file>
+    <file>
+      <guid>Installer.ascx</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>Installer.ascx</orgName>
+    </file>
+    <file>
+      <guid>Logo.png</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>Logo.png</orgName>
+    </file>
+    <file>
+      <guid>Pdf_icon.png</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>Pdf_icon.png</orgName>
+    </file>
+    <file>
+      <guid>Pixlr.aspx</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>Pixlr.aspx</orgName>
+    </file>
+    <file>
+      <guid>Power_icon.png</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>Power_icon.png</orgName>
+    </file>
+    <file>
+      <guid>SavePixlr.aspx</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>SavePixlr.aspx</orgName>
+    </file>
+    <file>
+      <guid>SelectMediaItem.aspx</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>SelectMediaItem.aspx</orgName>
+    </file>
+    <file>
+      <guid>Text_icon.png</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>Text_icon.png</orgName>
+    </file>
+    <file>
+      <guid>Video_icon.png</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>Video_icon.png</orgName>
+    </file>
+    <file>
+      <guid>Zip_icon.png</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>Zip_icon.png</orgName>
+    </file>
+    <file>
+      <guid>eb234f13-bd37-495c-972c-3bc5f4e4c730_Installer.ascx</guid>
+      <orgPath>/umbraco/plugins/DigibizAdvancedMediaPicker</orgPath>
+      <orgName>Installer.ascx</orgName>
+    </file>
+  </files>
+  <info>
+    <package>
+      <name>Digibiz Advanced Media Picker</name>
+      <version>2.0</version>
+      <license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
+      <url>http://our.umbraco.org/projects/backoffice-extensions/digibiz-advanced-media-picker</url>
+      <requirements>
+        <major>3</major>
+        <minor>0</minor>
+        <patch>0</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>Jeroen Breuer</name>
+      <website>http://our.umbraco.org/member/4297</website>
+    </author>
+    <readme><![CDATA[The Digibiz Advanced Media Picker 2.0 (DAMP 2.0) is a media picker with many awesome features. It can be used instead of the default media picker and is very user friendly. Here is a list of things it can do:
+
+- Store the complete media item in the umbraco xml (umbraco.config) or only the id.
+- Store a single or multiple media items in the media picker.
+- Define a minimum and maximum amount of media items.
+- Define a start node for the media tree. This can be done by a picker or XPath.
+- Choose which file extensions are allowed.
+- Choose which Media Types are allowed for selection and creation.
+- Edit the media item from the content section.
+- Use Pixlr (photoshop look a like) to modify images.
+- Fast performance using the Umbraco cache.]]></readme>
+  </info>
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros />
+  <DictionaryItems />
+  <Languages />
+  <DataTypes />
+  <control>/umbraco/plugins/DigibizAdvancedMediaPicker/Installer.ascx</control>
+</umbPackage>

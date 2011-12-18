@@ -1,0 +1,35 @@
+﻿<a href="#" class="eventblock">
+    <img src="/static/img/event.jpg" />
+    <div class="date">
+        <span>@String.Format("{0:dd}", Model.StartingTime)</span>@String.Format("{0:MMM}", Model.StartingTime)</div>
+    <div class="title bier">@Model.pageTitle</div>
+</a>
+<div class="detailsblock">
+    <p class="title">
+        Date:</p>
+    <p>@String.Format("{0:dddd, MMMM d, yyyy}", Model.StartingTime)<br />
+        from @String.Format("{0:HH':'mm}", Model.StartingTime) - @String.Format("{0:HH':'mm}", Model.EndingTime)
+        (GMT+0100)</p>
+    <p class="title">
+        Location:</p>
+    <p>
+        <strong>@Model.Location</strong><br />
+        @foreach (dynamic item in Model.LocationAddress)
+        {
+            @item.InnerText.ToString()<br />
+        }
+    </p>
+    <a class="gmaps" href="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=Patrijsweg+80+2289+EX+Rijswijk+Netherlands&ie=UTF8&hq=&hnear=Patrijsweg+80,+Rijswijk,+Zuid-Holland,+Netherlands&z=16"
+        title="Open deze locatie in googlemaps">Open in googlemaps</a>
+</div>
+<div class="contentblock">
+    @Model.BodyText
+    <h3>
+        Agenda</h3>
+    <p>
+        @foreach (dynamic item in Model.Agenda)
+        {
+            @item.start.InnerText.ToString() @:tot @item.end.InnerText.ToString() - @item.description.InnerText.ToString()<br/>
+                    }
+    </p>
+</div>

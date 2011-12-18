@@ -1,0 +1,26 @@
+<Project ToolsVersion="4.0"
+         DefaultTargets="Staging"
+         xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <UsingTask TaskName="TransformXml"
+               AssemblyFile="..\Release\Microsoft.Web.Publishing.Tasks.dll"/>
+
+    <PropertyGroup>
+        <ProjectPath>..\</ProjectPath>
+		
+        <TransformInputFile>$(ProjectPath)\staging\Web.config</TransformInputFile>
+        <TransformFile>$(ProjectPath)\Release\ConfigTransforms\Web.Staging.config</TransformFile>
+        <TransformOutputFile>$(ProjectPath)\Release\Staging\Web.config</TransformOutputFile>
+		
+        <StackTraceEnabled>False</StackTraceEnabled>
+    </PropertyGroup>
+
+
+    <Target Name="Staging">
+        <TransformXml Source="$(TransformInputFile)"
+                      Transform="$(TransformFile)"
+                      Destination="$(TransformOutputFile)"
+                      Condition=""
+                      StackTrace="$(StackTraceEnabled)" />
+    </Target>
+</Project>
