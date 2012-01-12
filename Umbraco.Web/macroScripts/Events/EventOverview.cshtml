@@ -1,0 +1,55 @@
+﻿@using MindBus.Extensions.Extensions
+@{
+    var root = Model.AncestorOrSelf(1);
+
+    var eventRoot = root.Children.Where("Template!=0").Where("Visible").Where("NodeTypeAlias == \"Events\"").FirstOrDefault();
+
+    if (eventRoot == null)
+    {
+        return;
+    }
+
+    var events = eventRoot.Children.Where("Template!=0").Where("Visible").Where("NodeTypeAlias == \"Event\" or NodeTypeAlias == \"DuugDrink\"").Where("EndingTime >= DateTime.Now").OrderBy("StartingTime");
+
+    if (!events.Any())
+    {
+    <div class="emptyList">
+        @Model.EmptyMessage
+    </div>
+    }
+    else
+    {
+        int itemsShown = 0;
+
+        if (!string.IsNullOrWhiteSpace(Model.GetPropertyValue("ItemsShown")))
+        {
+            itemsShown = Model.ItemsShown;
+        }
+
+        if (itemsShown > 0)
+        {
+            events = events.Take(itemsShown);
+        }
+
+        foreach (var item in events)
+        {
+            @RenderEvent(item)
+        }
+    }
+}
+@helper RenderEvent(dynamic item)
+    {
+        var startingTime = item.StartingTime;
+
+        var extraCssClass = item.NodeTypeAlias == "DuugDrink" ? "bier" : string.Empty;
+        
+    <a href="@item.Url" class="eventblock">
+        <img src="/static/img/event.jpg" />
+        <div class="date">
+            <span>@(((DateTime)startingTime).FormatDay())</span>@(((DateTime)startingTime).FormatMonth())</div>
+        <div class="details">
+            <span class="time">@(((DateTime)startingTime).FormatDateAndTime())</span><span class="location">@item.Location
+                - @item.LocationCity</span></div>
+        <div class="title @extraCssClass">@item.pageTitle</div>
+    </a>
+}

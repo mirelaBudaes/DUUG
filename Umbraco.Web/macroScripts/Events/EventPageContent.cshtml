@@ -1,14 +1,19 @@
-﻿<a href="#" class="eventblock">
-    <img src="/static/img/event.jpg" />
-    <div class="date">
-        <span>@String.Format("{0:dd}", Model.StartingTime)</span>@String.Format("{0:MMM}", Model.StartingTime)</div>
-    <div class="title bier">@Model.pageTitle</div>
-</a>
+﻿@using MindBus.Extensions.Extensions
+@{
+    var extraCssClass = Model.NodeTypeAlias == "DuugDrink" ? "bier" : string.Empty;
+    <a href="#" class="eventblock">
+        <img src="/static/img/event.jpg" />
+        <div class="date">
+            <span>@(((DateTime)Model.StartingTime).FormatDay())</span>@(((DateTime)Model.StartingTime).FormatMonth())</div>
+        <div class="title @extraCssClass">@Model.pageTitle</div>
+    </a>
+}
 <div class="detailsblock">
     <p class="title">
         Date:</p>
-    <p>@String.Format("{0:dddd, MMMM d, yyyy}", Model.StartingTime)<br />
-        from @String.Format("{0:HH':'mm}", Model.StartingTime) - @String.Format("{0:HH':'mm}", Model.EndingTime)
+    <p>@(((DateTime)Model.StartingTime).FormatToLongFormatWithCommas())<br />
+        from @(((DateTime)Model.StartingTime).FormatHour())
+        - @(((DateTime)Model.EndingTime).FormatHour())
         (GMT+0100)</p>
     <p class="title">
         Location:</p>
@@ -30,6 +35,6 @@
         @foreach (dynamic item in Model.Agenda)
         {
             @item.start.InnerText.ToString() @:tot @item.end.InnerText.ToString() - @item.description.InnerText.ToString()<br/>
-                    }
+                }
     </p>
 </div>

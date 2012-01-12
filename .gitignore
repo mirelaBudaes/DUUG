@@ -1,6 +1,9 @@
 _ReSharper.DUUG
+*.ReSharper.user
 Resources
 obj
+*.bat
+*.suo
 *.mdf
 *.ldf
 *.pdb

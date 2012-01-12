@@ -5,7 +5,6 @@
     <div class="grid66">
         <h2>
             <umbraco:item field="pageTitle" useifempty="pageName" runat="server"></umbraco:item></h2>
-            <umbraco:Macro FileLocation="~/macroScripts/EventPageContent.cshtml" runat="server"></umbraco:Macro>
-        
+            <umbraco:Macro FileLocation="~/macroScripts/Events/EventPageContent.cshtml" runat="server"></umbraco:Macro>        
     </div>
 </asp:Content>

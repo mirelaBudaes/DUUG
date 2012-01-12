@@ -5,5 +5,5 @@
     <h2>
         <umbraco:item field="pageTitle" useifempty="pageName" runat="server"></umbraco:item>
     </h2>
-    <umbraco:macro filelocation="~/macroScripts/EventOverview.cshtml" ItemsShown="-1" runat="server"></umbraco:macro>
+    <umbraco:macro filelocation="~/macroScripts/Events/EventOverview.cshtml" runat="server"></umbraco:macro>
 </asp:Content>

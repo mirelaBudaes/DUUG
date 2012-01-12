@@ -70,12 +70,17 @@
     <Reference Include="umbraco.DataLayer, Version=1.0.4266.19404, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\Umbraco.Web\bin\umbraco.DataLayer.dll</HintPath>
     </Reference>
+    <Reference Include="umbraco.MacroEngines">
+      <HintPath>..\Umbraco.Web\bin\umbraco.MacroEngines.dll</HintPath>
+    </Reference>
     <Reference Include="Vega.USiteBuilder, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\Umbraco.Web\bin\Vega.USiteBuilder.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DocumentTypes\DuugDrink.cs" />
     <Compile Include="DocumentTypes\Event.cs" />
+    <Compile Include="DocumentTypes\Events.cs" />
     <Compile Include="DocumentTypes\Home.cs" />
     <Compile Include="DocumentTypes\Overview.cs" />
     <Compile Include="DocumentTypes\PageSettings.cs" />
@@ -83,6 +88,7 @@
     <Compile Include="DocumentTypes\SiteSettings.cs" />
     <Compile Include="DocumentTypes\TextPage.cs" />
     <Compile Include="EventHandlers\RefreshOnFileUpload.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="MasterPages\Event.master.cs">
       <DependentUpon>Event.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

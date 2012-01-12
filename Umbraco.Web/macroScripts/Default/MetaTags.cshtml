@@ -1,6 +1,6 @@
 ﻿<meta charset="UTF-8">
 <title>@Library.Coalesce(Model.MetaTitle, Model.NavigationTitle, Model.PageTitle, Model.Name)
-    | @Parameter.fixedTitle</title>
+    | @Parameter.fixedTitle | @Model.GetPropertyValue("SiteTitle", true)</title>
     @*<title>Dutch Umbraco User Group</title>
 *@<meta name="description" content="@Model.MetaDescription" />
 <meta name="keywords" content="@Model.MetaKeywords" />

@@ -201,10 +201,10 @@
     <Content Include="masterpages\Event.master" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="macroScripts\EventPageContent.cshtml" />
+    <Content Include="macroScripts\Events\EventPageContent.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="macroScripts\EventOverview.cshtml" />
+    <Content Include="macroScripts\Events\EventOverview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="macroScripts\ProjectPageContent.cshtml" />

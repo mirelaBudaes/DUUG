@@ -13,12 +13,9 @@
             </ul>*@
         
     <ul id="mainnav">
-        @foreach (var item in parent.Children.Where("Visible").Where("showInMainMenu"))
+        @foreach (var item in parent.Children.Where("Template!=0").Where("Visible").Where("showInMainMenu"))
         {
-            if (NodeShouldBeRendered(item))
-            {
             @RenderNode(item, "")
-            }
         }
     </ul>
     }
@@ -30,17 +27,4 @@
     var url = item.NodeTypeAlias == "Home" ? "/" : item.Url;
 	
     <li class="@selected"><a href="@url" >@item.Name</a> </li>
-}
-@functions 
-{
-    private static bool NodeShouldBeRendered(dynamic item)
-    {
-        //Filter document types
-        if (item.NodeTypeAlias == "Overview" || item.NodeTypeAlias == "TextPage" || item.NodeTypeAlias == "Home")
-        {
-            return true;
-        }
-
-        return false;
-    }
 }
