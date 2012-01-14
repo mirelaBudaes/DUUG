@@ -39,20 +39,9 @@
                 </div>
             </div>
                 <umbraco:macro filelocation="~/macroScripts/MainMenu.cshtml" runat="server"></umbraco:macro>
+                <umbraco:macro filelocation="~/macroScripts/ProjectSpotlight.cshtml" runat="server"></umbraco:macro>
 
-            <div id="header">
-                <img src="/static/img/spotlight.jpg" />
-                <div class="spotlight">
-                    <p class="title">
-                        CMS Import</p>
-                    <p>
-                        <img src="/static/img/spotlight-thumb.png" alt="CMSimport" />CMSimport helps you import
-                        content or members from any datasource into Umbraco.
-                    </p>
-                    <p>
-                        <a href="#" class="button">Projectpagina &raquo;</a></p>
-                </div>
-            </div>
+            
             <div class="gridcontainer">
                 <div class="grid33">
                     <h2 class="grey">

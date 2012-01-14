@@ -87,6 +87,7 @@
     <Compile Include="DocumentTypes\Overview.cs" />
     <Compile Include="DocumentTypes\PageSettings.cs" />
     <Compile Include="DocumentTypes\Project.cs" />
+    <Compile Include="DocumentTypes\Projects.cs" />
     <Compile Include="DocumentTypes\SiteSettings.cs" />
     <Compile Include="DocumentTypes\TextPage.cs" />
     <Compile Include="EventHandlers\RefreshOnFileUpload.cs" />

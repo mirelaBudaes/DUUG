@@ -1,0 +1,50 @@
+﻿<h2>@Model.GetTitle()</h2>
+@{
+    dynamic projectRoot = GlobalFunctions.GetFirstNode(Model, "Projects");
+
+    if (projectRoot == null)
+    {
+        return;
+    }
+
+    var projects = projectRoot.Children.Where("Template!=0").Where("Visible").Where("NodeTypeAlias == \"Project\"");
+
+    if (!projects.Any())
+    {
+    <div class="emptyList">
+        @Model.EmptyMessage
+    </div>
+    }
+    else
+    {
+        int currentPage = 0;
+
+        if (!string.IsNullOrWhiteSpace(Request.QueryString["page"]))
+        {
+            int.TryParse(Request.QueryString["page"], out currentPage);
+        }
+
+        int totalCount, pageSize;
+
+        projects = GlobalFunctions.GetList(Model, projects, currentPage, out pageSize, out totalCount);
+
+        foreach (var item in projects)
+        {
+    @RenderProject(item)
+        }
+        
+    @Pager.Render(Model, pageSize, currentPage, totalCount)
+    }
+}
+@helper RenderProject(dynamic node)
+    {
+    <div class="projectblock">
+        <h3>@node.GetTitle()</h3>
+        <p>
+            @GalleryHelpers.RenderFirstImage(node, 125)
+            @node.Introduction
+        </p>
+        <p>
+            <a href="@node.Url" class="button">Projectpagina &raquo;</a></p>
+    </div>
+}

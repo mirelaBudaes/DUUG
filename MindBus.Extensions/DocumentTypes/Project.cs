@@ -2,7 +2,7 @@
 {
     using Vega.USiteBuilder;
 
-    [DocumentType(Name = "Project", IconUrl = "page.png", Thumbnail = "docWithImage.png", AllowedTemplates = new[] { "Project" }, DefaultTemplate = typeof(Project))]
+    [DocumentType(Name = "Project", IconUrl = "MB_project.jpg", Thumbnail = "MB_project.jpg", AllowedTemplates = new[] { "Project" }, DefaultTemplate = typeof(Project))]
     public class Project : PageSettings
     {
         [DocumentTypeProperty(UmbracoPropertyType.Textstring, Name = "Author", Tab = "Content", Description = "", Mandatory = true)]
@@ -20,7 +20,7 @@
         [DocumentTypeProperty(UmbracoPropertyType.Textstring, Name = "Twitter", Tab = "Content", Description = "")]
         public string Twitter { get; set; }
 
-        [DocumentTypeProperty(UmbracoPropertyType.TextboxMultiple, Name = "Introduction", Tab = "Content", Description = "Short introduction of the project")]
+        [DocumentTypeProperty(UmbracoPropertyType.SimpleEditor, Name = "Introduction", Tab = "Content", Description = "Short introduction of the project. Shouldn't be longer than 100 characters.")]
         public string Introduction { get; set; }
 
         [DocumentTypeProperty(UmbracoPropertyType.RichtextEditor, Name = "Content", Tab = "Content", Description = "")]

@@ -2,7 +2,7 @@
 {
     using Vega.USiteBuilder;
 
-    [DocumentType(Name = "Overview", IconUrl = "page.png", Thumbnail = "docWithImage.png", AllowedTemplates = new[] { "Events", "Projects" }, DefaultTemplate = typeof(Events), AllowedChildNodeTypes = new[] { typeof(Event), typeof(Project)})]
+    [DocumentType(Name = "Overview", IconUrl = "page.png", Thumbnail = "docWithImage.png")]
     public class Overview : PageSettings
     {
         [DocumentTypeProperty(UmbracoPropertyType.SimpleEditor, Name = "Empty events message", Tab = "Content", Description = "This text will be shown if there are no upcoming events", Mandatory = false)]

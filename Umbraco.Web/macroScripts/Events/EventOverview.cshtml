@@ -8,12 +8,9 @@
         return;
     }
 
-    @Model.typeOfEvents
+    string[] types = ((string[])Model.TypeOfEvents.Split(',')).Select(type => "NodeTypeAlias == \"" + type + "\"").ToArray();
 
-    string[] types = Model.TypeOfEvents.Split(',');
-
-    var typeConditions = types.Select(type => "NodeTypeAlias == \"" + type + "\"").ToArray();
-    var typeCondition = string.Join(" or ", typeConditions);
+    var typeCondition = string.Join(" or ", types);
 
     var events = eventRoot.Children.Where("Template!=0").Where("Visible").Where(typeCondition).Where("EndingTime >= DateTime.Now").OrderBy("StartingTime");
 

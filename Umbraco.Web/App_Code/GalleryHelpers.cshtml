@@ -1,0 +1,13 @@
+﻿@helper RenderFirstImage(dynamic node, int width = 0, int height = 0, string cssClass = "")
+    {
+        if (node.HasValue("Gallery"))
+        {
+            var images = node.Gallery.mediaItem;
+
+            if (images.Count() > 0)
+            {
+                var firstImage = images[1].Image;
+    <img src="/ImageGen.ashx?image=@firstImage.umbracoFile&width=@width&height=@height" alt="@firstImage.Name" title="@firstImage.Name" class="@cssClass"/>
+            }
+        }
+}

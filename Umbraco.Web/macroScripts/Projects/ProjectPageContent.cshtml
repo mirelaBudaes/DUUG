@@ -1,15 +1,7 @@
-﻿@using System.Linq
-@if (Model.HasValue("Gallery"))
-{
-    var images = Model.Gallery.mediaItem;
+﻿<h2>@Model.GetTitle()</h2>
 
-    if (images.Count() > 0)
-    {
-        var firstImage = images[1];
+@GalleryHelpers.RenderFirstImage(Model, 0, 180, "imageblock")
 
-        <img src="/ImageGen.ashx?image=@firstImage.Image.umbracoFile&height=180" alt="@firstImage.Image.Name" title="@firstImage.Image.Name" class="imageblock"/>
-    }
-}
 <div class="detailsblock">
     <p>
         @Model.Introduction
@@ -56,5 +48,5 @@
     @RenderPage("~/macroScripts/ImageGallery.cshtml")
     @Model.BodyText
     <p>
-        <a href="#" class="button">Visit @Model.Website &raquo;</a></p>
+        <a href="@Model.Website" target="_blank" class="button">Visit @Model.Website &raquo;</a></p>
 </div>
