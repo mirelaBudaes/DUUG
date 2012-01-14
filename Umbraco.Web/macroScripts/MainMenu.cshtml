@@ -26,5 +26,5 @@
 
     var url = item.NodeTypeAlias == "Home" ? "/" : item.Url;
 	
-    <li class="@selected"><a href="@url" >@item.Name</a> </li>
+    <li class="@selected"><a href="@url" >@item.GetTitle()</a> </li>
 }

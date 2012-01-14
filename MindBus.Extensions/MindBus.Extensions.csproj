@@ -89,6 +89,7 @@
     <Compile Include="DocumentTypes\TextPage.cs" />
     <Compile Include="EventHandlers\RefreshOnFileUpload.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\DynamicNodeExtensions.cs" />
     <Compile Include="MasterPages\Event.master.cs">
       <DependentUpon>Event.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -158,6 +159,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="HttpHandlers\" />

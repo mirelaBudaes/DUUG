@@ -32,7 +32,7 @@
     foreach (var item in projects)
     {
     <div class="projectblock">
-        <h3>@item.pageTitle</h3>
+        <h3>@item.GetTitle()</h3>
         <p>
             @if (item.HasValue("Gallery"))
             {

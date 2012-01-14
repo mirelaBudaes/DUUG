@@ -50,6 +50,6 @@
         <div class="details">
             <span class="time">@(((DateTime)startingTime).FormatDateAndTime())</span><span class="location">@item.Location
                 - @item.LocationCity</span></div>
-        <div class="title @extraCssClass">@item.pageTitle</div>
+        <div class="title @extraCssClass">@item.GetTitle()</div>
     </a>
 }

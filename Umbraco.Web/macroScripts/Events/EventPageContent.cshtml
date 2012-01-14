@@ -1,11 +1,12 @@
 ﻿@using MindBus.Extensions.Extensions
+<h2>@Model.GetTitle()</h2>
 @{
     var extraCssClass = Model.NodeTypeAlias == "DuugDrink" ? "bier" : string.Empty;
     <a href="#" class="eventblock">
         <img src="/static/img/event.jpg" />
         <div class="date">
             <span>@(((DateTime)Model.StartingTime).FormatDay())</span>@(((DateTime)Model.StartingTime).FormatMonth())</div>
-        <div class="title @extraCssClass">@Model.pageTitle</div>
+        <div class="title @extraCssClass">@Model.GetTitle()</div>
     </a>
 }
 <div class="detailsblock">
@@ -35,6 +36,6 @@
         @foreach (dynamic item in Model.Agenda)
         {
             @item.start.InnerText.ToString() @:tot @item.end.InnerText.ToString() - @item.description.InnerText.ToString()<br/>
-                }
+                        }
     </p>
 </div>
