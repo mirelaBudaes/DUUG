@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<umbPackage>
+  <files>
+    <file>
+      <guid>Auros.DocumentTypePicker.dll</guid>
+      <orgPath>/bin</orgPath>
+      <orgName>Auros.DocumentTypePicker.dll</orgName>
+    </file>
+  <file><guid>aeef62a9-6118-4bf8-a194-751bf9e648b8.dll</guid><orgPath>/bin</orgPath><orgName>Auros.DocumentTypePicker.dll</orgName></file></files>
+  <info>
+    <package>
+      <name>Document Type Picker</name>
+      <version>0.1</version>
+      <license url="http://www.opensource.org/licenses/mit-license.php">MIT</license>
+      <url>http://www.auros.co.uk</url>
+      <requirements>
+        <major>3</major>
+        <minor>0</minor>
+        <patch>0</patch>
+      </requirements>
+    </package>
+    <author>
+      <name>@tentonipete</name>
+      <website>auros.co.uk</website>
+    </author>
+    <readme><![CDATA[This package installs a "Document Type Picker" datatype that can then be added to any document type. This datatype will give the option of a dropdown list or a checkbox list to select one or many document types.]]></readme>
+  </info>
+  <DocumentTypes />
+  <Templates />
+  <Stylesheets />
+  <Macros />
+  <DictionaryItems />
+  <Languages />
+  <DataTypes>
+    <DataType Name="Document Type Picker" Id="790aff36-7fed-47fb-8bcd-9c91ce43ba24" Definition="3593d8e7-8b35-47b9-beda-5e830ca8c93c" />
+  </DataTypes>
+</umbPackage>

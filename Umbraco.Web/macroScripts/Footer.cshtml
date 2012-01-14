@@ -5,7 +5,34 @@
     </div>
     <div class="grid66">
         <ul class="sitemap">
-            <li><a href="#">News</a>
+            @{
+                var root = Model.AncestorOrSelf(1);
+
+                var pagesLevel2 = root.Children.Where("Template!=0").Where("Visible").Where("showInFooterMenu");
+
+                foreach (var node in pagesLevel2)
+                {
+                @RenderFooterLevel2(node)
+                }
+            }
+            @helper RenderFooterLevel2(dynamic node)
+                {
+                <li><a href="@node.Url">@node.GetTitle()</a>
+                    @{
+                        var children = node.Children.Where("Template!=0").Where("Visible").Where("showInFooterMenu");
+                    }
+                    @if (children.Any())
+                    {
+                        <ul>
+                            @foreach (var child in children)
+                            {
+                                @RenderFooterLevel2(child)
+                            }
+                        </ul>
+                    }
+                </li>
+            }
+            @* <li><a href="#">News</a>
                 <ul>
                     <li><a href="#">News archive</a></li>
                     <li><a href="#">Search news</a></li>
@@ -34,7 +61,7 @@
                     <li><a href="#">News archive</a></li>
                     <li><a href="#">Search news</a></li>
                 </ul>
-            </li>
+            </li>*@
         </ul>
     </div>
 </div>

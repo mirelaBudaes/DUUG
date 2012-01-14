@@ -3,8 +3,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="body" runat="server">
     <div class="grid66">
-        <h2>
-            <umbraco:item field="pageTitle" useifempty="pageName" runat="server"></umbraco:item></h2>
-            <umbraco:Macro FileLocation="~/macroScripts/Events/EventPageContent.cshtml" runat="server"></umbraco:Macro>        
+        <umbraco:macro filelocation="~/macroScripts/Events/EventPageContent.cshtml" runat="server"></umbraco:macro>
     </div>
 </asp:Content>

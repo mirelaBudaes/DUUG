@@ -1,0 +1,11 @@
+﻿@using MindBus.Extensions.Extensions
+<h2>@Model.GetTitle()</h2>
+<div class="detailsblock">
+    <p class="title">
+        Date:</p>
+    <p>@(((DateTime)Model.publishedDate).FormatToLongFormatWithCommas())</p>
+    <p>@Model.Intro</p>
+</div>
+<div class="contentblock">
+    @Model.BodyText
+</div>

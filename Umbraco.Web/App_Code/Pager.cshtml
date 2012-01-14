@@ -1,0 +1,27 @@
+﻿@using umbraco.MacroEngines
+@helper Render(DynamicNode node, int pageSize, int currentPage, int totalCount)
+    {
+    if (totalCount <= pageSize || pageSize == 0)
+    {
+        return;
+    }
+
+    int numberOfPages = totalCount/pageSize;
+    <ul>
+        @if (currentPage > 0)
+        {   <li><a href="@node.Url?page=@(currentPage - 1)">Vorige</a></li>
+        }
+        @for (int i = 0; i < numberOfPages; i++)
+        {
+            string activeClass = string.Empty;
+            if (i == currentPage)
+            {
+                activeClass = "active";
+            }
+            <li><a href="@node.Url?page=@i" class="@activeClass">@(i + 1)</a></li>
+        }
+         @if (currentPage < numberOfPages -1)
+        {   <li><a href="@node.Url?page=@(currentPage + 1)">Volgende</a></li>
+        }
+    </ul>
+}

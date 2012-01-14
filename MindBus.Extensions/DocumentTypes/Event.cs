@@ -3,7 +3,7 @@ using Vega.USiteBuilder;
 
 namespace MindBus.Extensions.DocumentTypes
 {
-    [DocumentType(Name = "Event", IconUrl = "MB_event.jpg", Thumbnail = "MB-event.jpg", AllowedTemplates = new[] { "Event" }, DefaultTemplate = typeof(Event))]
+    [DocumentType(Name = "Event", IconUrl = "MB_eventSession.jpg", Thumbnail = "MB-event.jpg", AllowedTemplates = new[] { "Event" }, DefaultTemplate = typeof(Event))]
     public class Event : PageSettings
     {
         [DocumentTypeProperty(UmbracoPropertyType.DatePickerWithTime, Name = "Starting time", Tab = "Content", Description = "", Mandatory = true)]

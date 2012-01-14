@@ -82,6 +82,8 @@
     <Compile Include="DocumentTypes\Event.cs" />
     <Compile Include="DocumentTypes\Events.cs" />
     <Compile Include="DocumentTypes\Home.cs" />
+    <Compile Include="DocumentTypes\NewsItem.cs" />
+    <Compile Include="DocumentTypes\NewsItems.cs" />
     <Compile Include="DocumentTypes\Overview.cs" />
     <Compile Include="DocumentTypes\PageSettings.cs" />
     <Compile Include="DocumentTypes\Project.cs" />
@@ -117,6 +119,20 @@
     </Compile>
     <Compile Include="MasterPages\Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\NewsItem.master.cs">
+      <DependentUpon>NewsItem.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\NewsItem.master.designer.cs">
+      <DependentUpon>NewsItem.master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\NewsItems.master.cs">
+      <DependentUpon>NewsItems.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\NewsItems.master.designer.cs">
+      <DependentUpon>NewsItems.master</DependentUpon>
     </Compile>
     <Compile Include="MasterPages\Project.Master.cs">
       <DependentUpon>Project.Master</DependentUpon>
@@ -178,6 +194,8 @@
     <Content Include="MasterPages\Events.master" />
     <Content Include="MasterPages\Projects.master" />
     <Content Include="MasterPages\Home.master" />
+    <Content Include="MasterPages\NewsItem.master" />
+    <Content Include="MasterPages\NewsItems.master" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -1,15 +1,21 @@
 ﻿@using MindBus.Extensions.Extensions
+<h2>@Model.GetTitle()</h2>
 @{
-    var root = Model.AncestorOrSelf(1);
-
-    var eventRoot = root.Children.Where("Template!=0").Where("Visible").Where("NodeTypeAlias == \"Events\"").FirstOrDefault();
+    dynamic eventRoot = GlobalFunctions.GetFirstNode(Model, "Events");
 
     if (eventRoot == null)
     {
         return;
     }
 
-    var events = eventRoot.Children.Where("Template!=0").Where("Visible").Where("NodeTypeAlias == \"Event\" or NodeTypeAlias == \"DuugDrink\"").Where("EndingTime >= DateTime.Now").OrderBy("StartingTime");
+    @Model.typeOfEvents
+
+    string[] types = Model.TypeOfEvents.Split(',');
+
+    var typeConditions = types.Select(type => "NodeTypeAlias == \"" + type + "\"").ToArray();
+    var typeCondition = string.Join(" or ", typeConditions);
+
+    var events = eventRoot.Children.Where("Template!=0").Where("Visible").Where(typeCondition).Where("EndingTime >= DateTime.Now").OrderBy("StartingTime");
 
     if (!events.Any())
     {
@@ -19,22 +25,23 @@
     }
     else
     {
-        int itemsShown = 0;
+        int currentPage = 0;
 
-        if (!string.IsNullOrWhiteSpace(Model.GetPropertyValue("ItemsShown")))
+        if (!string.IsNullOrWhiteSpace(Request.QueryString["page"]))
         {
-            itemsShown = Model.ItemsShown;
+            int.TryParse(Request.QueryString["page"], out currentPage);
         }
 
-        if (itemsShown > 0)
-        {
-            events = events.Take(itemsShown);
-        }
+        int totalCount, pageSize;
+
+        events = GlobalFunctions.GetList(Model, events, currentPage, out pageSize, out totalCount);
 
         foreach (var item in events)
         {
-            @RenderEvent(item)
+    @RenderEvent(item)
         }
+
+    @Pager.Render(Model, pageSize, currentPage, totalCount)
     }
 }
 @helper RenderEvent(dynamic item)

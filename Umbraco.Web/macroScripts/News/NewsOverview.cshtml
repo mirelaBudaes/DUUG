@@ -1,0 +1,49 @@
+﻿@using MindBus.Extensions.Extensions
+<h2>@Model.GetTitle()</h2>
+@{
+    dynamic newsRoot = GlobalFunctions.GetFirstNode(Model, "NewsItems");
+
+    if (newsRoot == null)
+    {
+        return;
+    }
+
+    var news = newsRoot.Children.Where("Template!=0").Where("Visible").Where("NodeTypeAlias == \"NewsItem\"").Where("PublishedDate <= DateTime.Now").OrderBy("PublishedDate desc");
+
+    if (!news.Any())
+    {
+    <div class="emptyList">
+        @Model.EmptyMessage
+    </div>
+    }
+    else
+    {
+        int currentPage = 0;
+
+        if (!string.IsNullOrWhiteSpace(Request.QueryString["page"]))
+        {
+            int.TryParse(Request.QueryString["page"], out currentPage);
+        }
+        
+        int totalCount, pageSize;
+
+        news = GlobalFunctions.GetList(Model, news, currentPage, out pageSize, out totalCount);
+        foreach (var item in news)
+        {
+            @RenderNews(item);
+        }
+
+        @Pager.Render(Model, pageSize, currentPage, totalCount)
+    }
+}
+@helper RenderNews(dynamic item)
+    {
+    <a href="@item.Url" class="newsblock">
+        <div class="date">
+            <span>@(((DateTime)item.PublishedDate).FormatToLongFormatWithCommas())</span></div>
+        <div class="details">
+            @item.Intro</div>
+        <div class="title">@item.GetTitle()</div>
+    </a>
+}
+

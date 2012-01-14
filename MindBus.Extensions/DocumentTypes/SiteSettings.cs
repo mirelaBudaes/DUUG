@@ -2,7 +2,7 @@
 {
     using Vega.USiteBuilder;
 
-    [DocumentType(Name = "Site Settings", IconUrl = "sitemap_color.png", Thumbnail = "developer.png", AllowedChildNodeTypes = new[] { typeof(Overview), typeof(TextPage), typeof(Home), typeof(Events) })]
+    [DocumentType(Name = "Site Settings", IconUrl = "sitemap_color.png", Thumbnail = "developer.png", AllowedChildNodeTypes = new[] { typeof(Overview), typeof(TextPage), typeof(Home), typeof(Events), typeof(NewsItems) })]
     public class SiteSettings : DocumentTypeBase
     {
         [DocumentTypeProperty(UmbracoPropertyType.Textstring, Name = "Site title", Tab = "Settings", Description = "This will be part of the Meta title.")]

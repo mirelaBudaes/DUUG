@@ -159,6 +159,7 @@
     <Content Include="xslt\XSLTsearch.xslt" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Code\XSLTsearch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -217,6 +218,32 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="macroScripts\MainMenu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="macroScripts\News\NewsOverview.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Code\GlobalFunctions.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="macroScripts\News\NewsPageContent.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="masterpages\Events.master" />
+    <Content Include="masterpages\Home.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="masterpages\NewsItem.master" />
+    <Content Include="masterpages\NewsItems.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="masterpages\Projects.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Code\GlobalHelpers.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Code\Pager.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

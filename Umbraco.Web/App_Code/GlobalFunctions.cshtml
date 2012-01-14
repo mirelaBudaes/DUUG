@@ -1,0 +1,54 @@
+﻿@using umbraco.MacroEngines
+@using System.Linq
+@functions{
+
+    public static dynamic GetFirstNode(dynamic currentNode, string nodeTypeAlias)
+    {
+        var root = currentNode.AncestorOrSelf(1);
+
+        var eventRoot = root.Children.Where("Template!=0").Where("Visible").Where("NodeTypeAlias == \""+ nodeTypeAlias + "\"").FirstOrDefault();
+
+        return eventRoot;
+    }
+
+    public static IEnumerable<DynamicNode> GetList(dynamic currentNode, DynamicNodeList dynamicNodeList, int currentPage, out int pageSize, out int totalCount)
+    {
+        int itemsShown = 0;
+
+        IEnumerable<DynamicNode> nodes = dynamicNodeList.Items;
+
+        if (nodes == null)
+        {
+            totalCount = 0;
+            pageSize = 0;
+            return new List<DynamicNode>();
+        }
+
+        if (!string.IsNullOrWhiteSpace(currentNode.GetPropertyValue("ItemsShown")))
+        {
+            itemsShown = currentNode.ItemsShown;
+        }
+
+        if (itemsShown > 0)
+        {
+            nodes = nodes.Take(itemsShown);
+        }
+
+        totalCount = nodes.Count();
+
+         pageSize = 0;
+
+        if (!string.IsNullOrWhiteSpace(currentNode.GetPropertyValue("ItemsShownPerPage")))
+        {
+            pageSize = currentNode.ItemsShownPerPage;
+        }
+
+        if(pageSize > 0)
+        {
+            nodes = nodes.Skip(currentPage * pageSize).Take(pageSize);
+        }
+
+        return nodes;
+    }
+}
+
