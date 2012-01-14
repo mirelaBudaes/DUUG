@@ -6,8 +6,8 @@
         return;
     }
 
-    int numberOfPages = totalCount/pageSize;
-    <ul>
+    int numberOfPages = MindBus.Extensions.Util.CalculateNumberOfPages(totalCount, pageSize);
+   <ul class="paging">
         @if (currentPage > 0)
         {   <li><a href="@node.Url?page=@(currentPage - 1)">Vorige</a></li>
         }

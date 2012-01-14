@@ -1,13 +1,4 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/Main.Master" AutoEventWireup="true" CodeBehind="Projects.master.cs" Inherits="MindBus.Extensions.MasterPages.Projects" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="body" runat="server">
-<h2>
-        <umbraco:item field="pageTitle" useifempty="pageName" runat="server"></umbraco:item>
-    </h2>
-    <umbraco:macro filelocation="~/macroScripts/ProjectOverview.cshtml" ItemsShown="-1" runat="server"></umbraco:macro>
-    <ul class="paging">
-              <li><a href="#" class="active">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-            </ul>
+    <umbraco:macro filelocation="~/macroScripts/Projects/ProjectOverview.cshtml" runat="server"></umbraco:macro>    
 </asp:Content>

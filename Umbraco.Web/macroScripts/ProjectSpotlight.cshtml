@@ -1,0 +1,40 @@
+﻿@{
+    dynamic projectRoot = GlobalFunctions.GetFirstNode(Model, "Projects");
+
+    if (projectRoot == null)
+    {
+        return;
+    }
+
+    var projects = projectRoot.Children.Where("Template!=0").Where("Visible").Where("NodeTypeAlias == \"Project\"");
+
+    if (!projects.Any())
+    {
+        return;
+    }
+
+    Random random = new Random();
+
+    int spotlightProjectPosition = random.Next(0, projects.Count());
+
+    var spotlightProject = projects[spotlightProjectPosition];
+    
+    @RenderSpotlight(spotlightProject)
+}
+
+@helper RenderSpotlight(dynamic projectNode)
+    {
+    <div id="header">
+        <img src="/static/img/spotlight.jpg" />
+        <div class="spotlight">
+            <p class="title">
+                @projectNode.GetTitle()</p>
+            <p>
+                @GalleryHelpers.RenderFirstImage(projectNode, 84)
+                @projectNode.Introduction
+            </p>
+            <p>
+                <a href="@projectNode.Url" class="button">Projectpagina &raquo;</a></p>
+        </div>
+    </div>
+}

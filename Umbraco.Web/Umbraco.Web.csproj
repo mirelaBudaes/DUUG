@@ -208,13 +208,13 @@
     <Content Include="macroScripts\Events\EventOverview.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="macroScripts\ProjectPageContent.cshtml" />
+    <Content Include="macroScripts\Projects\ProjectPageContent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="macroScripts\ImageGallery.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="macroScripts\ProjectOverview.cshtml" />
+    <Content Include="macroScripts\Projects\ProjectOverview.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="macroScripts\MainMenu.cshtml" />
@@ -240,10 +240,13 @@
     <Content Include="masterpages\Projects.master" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\GlobalHelpers.cshtml" />
+    <Content Include="App_Code\GalleryHelpers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Code\Pager.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="macroScripts\ProjectSpotlight.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
