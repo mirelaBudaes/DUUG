@@ -8,11 +8,28 @@
         return;
     }
 
-    string[] types = ((string[])Model.TypeOfEvents.Split(',')).Select(type => "NodeTypeAlias == \"" + type + "\"").ToArray();
+    string[] types;
 
-    var typeCondition = string.Join(" or ", types);
+    if (string.IsNullOrWhiteSpace(Model.GetPropertyValue("typeOfEvents")))
+    {
+        types = new string[] { };
+    }
+    else
+    {
+        types = Model.TypeOfEvents.Split(',');
+    }
 
-    var events = eventRoot.Children.Where("Template!=0").Where("Visible").Where(typeCondition).Where("EndingTime >= DateTime.Now").OrderBy("StartingTime");
+    var typeConditions = types.Select(type => "NodeTypeAlias == \"" + type + "\"").ToArray();
+
+    var typeCondition = string.Join(" or ", typeConditions);
+
+    var events = eventRoot.Children.Where("Template!=0").Where("Visible");
+    if(!string.IsNullOrWhiteSpace(typeCondition))
+    {
+        events = events.Where(typeCondition);
+    }
+
+    events = events.Where("EndingTime >= DateTime.Now").OrderBy("StartingTime");
 
     if (!events.Any())
     {
@@ -29,9 +46,11 @@
             int.TryParse(Request.QueryString["page"], out currentPage);
         }
 
+        string itemsShownProperty = Model.Name == "Home" ? "eventsShown" : "itemsShown";
+
         int totalCount, pageSize;
 
-        events = GlobalFunctions.GetList(Model, events, currentPage, out pageSize, out totalCount);
+        events = GlobalFunctions.GetList(Model, events, itemsShownProperty, currentPage, out pageSize, out totalCount);
 
         foreach (var item in events)
         {

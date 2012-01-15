@@ -24,9 +24,11 @@
             int.TryParse(Request.QueryString["page"], out currentPage);
         }
 
+        string itemsShownProperty = Model.Name == "Home" ? "projectsShown" : "itemsShown";
+
         int totalCount, pageSize;
 
-        projects = GlobalFunctions.GetList(Model, projects, currentPage, out pageSize, out totalCount);
+        projects = GlobalFunctions.GetList(Model, projects, itemsShownProperty, currentPage, out pageSize, out totalCount);
 
         foreach (var item in projects)
         {

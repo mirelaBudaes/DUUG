@@ -11,7 +11,7 @@
         return eventRoot;
     }
 
-    public static IEnumerable<DynamicNode> GetList(dynamic currentNode, DynamicNodeList dynamicNodeList, int currentPage, out int pageSize, out int totalCount)
+    public static IEnumerable<DynamicNode> GetList(dynamic currentNode, DynamicNodeList dynamicNodeList, string itemsShownProperty, int currentPage, out int pageSize, out int totalCount)
     {
         int itemsShown = 0;
 
@@ -24,11 +24,11 @@
             return new List<DynamicNode>();
         }
 
-        if (!string.IsNullOrWhiteSpace(currentNode.GetPropertyValue("ItemsShown")))
+        if (!string.IsNullOrWhiteSpace(currentNode.GetPropertyValue(itemsShownProperty)))
         {
-            itemsShown = currentNode.ItemsShown;
+            int.TryParse(currentNode.GetPropertyValue(itemsShownProperty), out itemsShown);
         }
-
+        
         if (itemsShown > 0)
         {
             nodes = nodes.Take(itemsShown);

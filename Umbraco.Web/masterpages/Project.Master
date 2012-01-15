@@ -1,9 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" MasterPageFile="~/masterpages/Main.master"
     CodeBehind="Project.master.cs" Inherits="MindBus.Extensions.MasterPages.Project" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="body" runat="server">
-    <h2>
-        <umbraco:item field="pageTitle" useifempty="pageName" runat="server"></umbraco:item>
-    </h2>
+<asp:Content ID="Content1" ContentPlaceHolderID="body" runat="server">   
     <umbraco:macro filelocation="~/macroScripts/Projects/ProjectPageContent.cshtml" runat="server"></umbraco:macro>
 </asp:Content>

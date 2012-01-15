@@ -4,8 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="body" runat="server">
     <h2 class="grey">
         Upcoming Events</h2>
-    <umbraco:macro filelocation="~/macroScripts/Events/EventOverview.cshtml" itemsshown="2"
-        runat="server"></umbraco:macro>
-    <umbraco:macro filelocation="~/macroScripts/ProjectOverview.cshtml" itemsshown="3"
+    <umbraco:macro filelocation="~/macroScripts/Events/EventOverview.cshtml" itemsshown="3" runat="server"></umbraco:macro>
+    <umbraco:macro filelocation="~/macroScripts/Projects/ProjectOverview.cshtml" itemsshown="3"
         runat="server"></umbraco:macro>
 </asp:Content>
