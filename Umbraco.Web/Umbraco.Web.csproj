@@ -136,6 +136,7 @@
     <Content Include="static\css\Tiny.css" />
     <Content Include="static\css\XSLTsearch.css" />
     <Content Include="static\js\libs\jquery-1.6.2.min.js" />
+    <Content Include="static\js\libs\jquery.twitter.js" />
     <Content Include="static\js\libs\modernizr-2.0.6.min.js" />
     <Content Include="static\js\plugins.js" />
     <Content Include="static\js\script.js" />
@@ -192,7 +193,6 @@
     <Content Include="masterpages\XSLTSearch.master" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="masterpages\Main_ex.Master" />
     <Content Include="masterpages\Project.Master" />
   </ItemGroup>
   <ItemGroup>
@@ -246,7 +246,10 @@
     <Content Include="App_Code\Pager.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="macroScripts\ProjectSpotlight.cshtml" />
+    <Content Include="macroScripts\Projects\ProjectSpotlight.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="macroScripts\Title.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

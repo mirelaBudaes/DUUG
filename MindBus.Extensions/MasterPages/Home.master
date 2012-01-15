@@ -1,6 +1,28 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/Main.Master" AutoEventWireup="true"
     CodeBehind="Home.master.cs" Inherits="MindBus.Extensions.MasterPages.Home" %>
 
+<asp:Content ID="Content2" ContentPlaceHolderID="cphHeader" runat="server">
+<div class="lastnews">
+          <h2>Headline</h2>
+          <p class="date">2 mei 2011</p>
+          <p class="title">Dutch Umbraco User Group lanceert website!</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at justo sed orci adipiscing volutpat. Mauris mauris nisi, consectetur tempor faucibus et, pulvinar sed erat. Aenean ornare mauris neque.</p>
+          <p><a class="button" href="#">Lees verder »</a></p>
+          <div class="social">
+            <script type="text/javascript">                var switchTo5x = true;</script><script src="http://w.sharethis.com/button/buttons.js" type="text/javascript"></script><script type="text/javascript">                                                                                                                                                                     stLight.options({ publisher: 'fe9ec6f1-8808-495c-a60a-9fd453863dd7' });</script>
+            <span displaytext="Tweet" class="st_twitter_button" st_processed="yes"><span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton"><span class="stMainServices st-twitter-counter" style="background-image: url(&quot;http://w.sharethis.com/images/twitter_counter.png&quot;);">&nbsp;<img src="http://w.sharethis.com/images/check-big.png" style="position: absolute; top: -7px; right: -7px; width: 19px; height: 19px; max-width: 19px; max-height: 19px; display: none;"></span></span></span><span displaytext="Facebook" class="st_facebook_button" st_processed="yes"><span style="text-decoration:none;color:#000000;display:inline-block;cursor:pointer;" class="stButton"><span class="stMainServices st-facebook-counter" style="background-image: url(&quot;http://w.sharethis.com/images/facebook_counter.png&quot;);">&nbsp;<img src="http://w.sharethis.com/images/check-big.png" style="position: absolute; top: -7px; right: -7px; width: 19px; height: 19px; max-width: 19px; max-height: 19px; display: none;"></span></span></span>
+          </div>
+        </div>
+        <div class="news">
+          <h2>News</h2>
+          <ul>
+            <li><a href="#"><span>01</span>orem ipsum dolor sit amet, consectetur adi...</a></li>
+            <li><a href="#"><span>17</span>orem ipsum dolor sit amet, consectetur adi...</a></li>
+            <li><a href="#"><span>24</span>orem ipsum dolor sit amet, consectetur adi...</a></li>
+          </ul>
+        </div>
+</asp:Content>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="body" runat="server">
     <h2 class="grey">
         Upcoming Events</h2>

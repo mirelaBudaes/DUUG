@@ -21,20 +21,17 @@
     
     @RenderSpotlight(spotlightProject)
 }
-
 @helper RenderSpotlight(dynamic projectNode)
     {
-    <div id="header">
-        <img src="/static/img/spotlight.jpg" />
-        <div class="spotlight">
-            <p class="title">
-                @projectNode.GetTitle()</p>
-            <p>
-                @GalleryHelpers.RenderFirstImage(projectNode, 84)
-                @projectNode.Introduction
-            </p>
-            <p>
-                <a href="@projectNode.Url" class="button">Projectpagina &raquo;</a></p>
-        </div>
+    <img src="/static/img/spotlight.jpg" />
+    <div class="spotlight">
+        <p class="title">
+            @projectNode.GetTitle()</p>
+        <p>
+            @GalleryHelpers.RenderFirstImage(projectNode, 84)
+            @projectNode.Introduction
+        </p>
+        <p>
+            <a href="@projectNode.Url" class="button">Projectpagina &raquo;</a></p>
     </div>
 }

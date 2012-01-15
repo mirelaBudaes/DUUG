@@ -2,5 +2,6 @@
     CodeBehind="Events.master.cs" Inherits="MindBus.Extensions.MasterPages.Events" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="body" runat="server">
+    <umbraco:macro filelocation="~/macroScripts/Title.cshtml" runat="server"></umbraco:macro>    
     <umbraco:macro filelocation="~/macroScripts/Events/EventOverview.cshtml" runat="server"></umbraco:macro>
 </asp:Content>

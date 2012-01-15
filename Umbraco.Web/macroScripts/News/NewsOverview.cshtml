@@ -27,7 +27,7 @@
         
         int totalCount, pageSize;
 
-        news = GlobalFunctions.GetList(Model, news, currentPage, out pageSize, out totalCount);
+        news = GlobalFunctions.GetList(Model, news, "itemsShown", currentPage, out pageSize, out totalCount);
         foreach (var item in news)
         {
             @RenderNews(item);

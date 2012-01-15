@@ -2,7 +2,7 @@
   
 <asp:content ID="Content1" ContentPlaceHolderId="body" runat="server">
   <div id="wrapper">
-    <h1><umbraco:Item field="pageTitle" useIfEmpty="pageName" runat="server"></umbraco:Item></h1>
+    <h2><umbraco:Item field="pageTitle" useIfEmpty="pageName" runat="server"></umbraco:Item></h2>
     <umbraco:Item field="bodyText" runat="server"></umbraco:Item>  
   </div>
 </asp:content>

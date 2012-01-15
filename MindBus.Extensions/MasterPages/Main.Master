@@ -1,4 +1,5 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.Master.cs" Inherits="MindBus.Extensions.MasterPages.Main" MasterPageFile="~/umbraco/masterpages/default.master" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.Master.cs" Inherits="MindBus.Extensions.MasterPages.Main"
+    MasterPageFile="~/umbraco/masterpages/default.master" %>
 
 <%@ Register Namespace="ClientDependency.Core.Controls" Assembly="ClientDependency.Core"
     TagPrefix="CD" %>
@@ -7,7 +8,9 @@
     <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
     <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
     <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-    <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    <!--[if gt IE 8]><!-->
+    <html class="no-js" lang="en">
+    <!--<![endif]-->
     <head>
         <umbraco:macro filelocation="~/macroScripts/Default/MetaTags.cshtml" runat="server" />
         <CD:ClientDependencyLoader ID="ClientDependencyLoader1" runat="server">
@@ -22,13 +25,12 @@
             PathNameAlias="Styles" />
         <CD:CssInclude ID="CssInclude1" runat="server" FilePath="fonts/ITCAvantGardeGothicMedium/stylesheet.css"
             Priority="0" PathNameAlias="Styles" />
-        <CD:JsInclude runat="server" FilePath="jquery-1.6.2.min.js" Priority="0"
-            PathNameAlias="LibScripts" />
+        <CD:JsInclude runat="server" FilePath="jquery-1.6.2.min.js" Priority="0" PathNameAlias="LibScripts" />
         <script type="text/javascript">
     <umbraco:Macro FileLocation="~/macroScripts/Default/SiteAnalytics.cshtml" runat="server" />
         </script>
     </head>
-    <body>
+    <body class="<%=CurrentNodeTypeAlias %>">
         <div id="page">
             <div id="logo">
                 <div>
@@ -38,16 +40,21 @@
                         <img src="/static/img/join.png" alt="Join DUUG, be part of the community" /></a>
                 </div>
             </div>
-                <umbraco:macro filelocation="~/macroScripts/MainMenu.cshtml" runat="server"></umbraco:macro>
-                <umbraco:macro filelocation="~/macroScripts/ProjectSpotlight.cshtml" runat="server"></umbraco:macro>
-
-            
+            <umbraco:macro filelocation="~/macroScripts/MainMenu.cshtml" runat="server"></umbraco:macro>
+            <div id="header">
+                <asp:ContentPlaceHolder ID="cphHeader" runat="server">
+                    <umbraco:macro filelocation="~/macroScripts/Projects/ProjectSpotlight.cshtml" runat="server"></umbraco:macro>
+                </asp:ContentPlaceHolder>
+            </div>
             <div class="gridcontainer">
                 <div class="grid33">
                     <h2 class="grey">
                         Stream</h2>
                     <img src="/static/img/tweetduug.png" alt="@DUUGnl" />
-                    <script src="http://github.com/boazsender/jQuery-Twitter-Plugin/raw/master/jquery.twitter.js"
+                   <%-- <script src="http://github.com/boazsender/jQuery-Twitter-Plugin/raw/master/jquery.twitter.js"
+                        type="text/javascript"></script>--%>
+
+                        <script src="/static/js/libs/jquery.twitter.js"
                         type="text/javascript"></script>
                     <script type="text/javascript">
                         $(function () {
@@ -64,11 +71,10 @@
                     </div>
                 </div>
                 <div class="grid66">
-                <asp:ContentPlaceHolder Id="body" runat="server" />
+                    <asp:ContentPlaceHolder ID="body" runat="server" />
                 </div>
             </div>
-                <umbraco:Macro FileLocation="~/macroScripts/Footer.cshtml" runat="server" />
-
+            <umbraco:macro filelocation="~/macroScripts/Footer.cshtml" runat="server" />
             <div class="gridcontainer" id="copy">
                 <div class="grid33">
                     &copy 2010 - 2011 Dutch Umbraco User Group
@@ -81,4 +87,4 @@
         </div>
     </body>
     </html>
-    </asp:Content>
+</asp:Content>
